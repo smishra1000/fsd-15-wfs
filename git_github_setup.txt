@@ -1,0 +1,21 @@
+setup git and github 
+
+1> cretae account on github.com / signup process 
+2>download git for windows and install it 
+
+3> github.com click on create new repository button
+4>put name for repo 
+5>click create 
+after clicking you will get some instruction 
+
+6>in your local system create folder -- ex- full_stack_course
+7>insode this folder create file 
+8>cd to that folder 
+9> git init 
+10> git status 
+11> git add <file_name>
+    git add . 
+12>git status
+13> git commit -"some meaningful message"
+14>git remote add origin <repo_link> 
+15> git push origin master    

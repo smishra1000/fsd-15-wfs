@@ -1,0 +1,41 @@
+Intro
+what is full stack
+git development tool
+html
+css
+js
+bootstrap
+nodejs
+MongoDb  
+React Express
+
+https://careerx1-my.sharepoint.com/:o:/g/personal/ajay_nallavelli_careerx_club/EsWV-4hO9Q1IuBH6y4I2SmIBYibBeoOBnumlTwDXCU-4dw?e=8ATYcM
+
+
+
+
+
+html 
+doctype 
+basic code 
+head 
+    title 
+    meta --data baout 
+    style 
+    link 
+    style
+ body 
+    h1,h6 p img a 
+    
+ attributes---href src alt id class style   
+ types of elments 
+    block level inline elements 
+
+    mern stack course 
+
+    <meta name=keywords content="mern stack course"
+    <meta name="description" comntent="mern stack is best course in carrex club"
+
+
+
+home    aboutus  contactus

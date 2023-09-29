@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Course Registration form
+        </title>
+        <style>
+            .registration-box{
+                width:800px;
+                height:auto;
+                background-color: grey;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Course Registration form</h1>
+        <div class="registration-box">
+                <form action="formoutput.html" method="get">
+                    <div>
+                        <label>First name <span style="color:red">*</span></label>
+                        <input type="text" value="" name="fname" placeholder="enter fname" required/>
+                    </div>
+                    <div>
+                        <label>Last name</label>
+                        <input type="text" value="mishra" name="lname" placeholder="enter last name" readonly/>
+                    </div>
+                    <div>
+                        <label>Email</label>
+                        <input type="email" value="" name="email" placeholder="enter email"/>
+                    </div>
+                    <div>
+                        <label>password</label>
+                        <input type="password" value="" name="pasword" placeholder="enter password"/>
+                    </div>
+                    <div>
+                        <label>Courses</label>
+                        <select name="courses">
+                            <option value="">MEAN</option>
+                            <option>MERN</option>
+                            <option>HTML</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Graduation Year</label>
+                        <br/>
+                        <label>2022</label>
+                        <input type="radio" value="2022" name="grad_year"/>
+                        <label>2023</label>
+                        <input type="radio" value="2023" name="grad_year"/>
+                        <label>2024</label>
+                        <input type="radio" value="2024" name="grad_year"/>
+                    </div>
+
+
+                    <div>
+                        <label>Enroll for which program</label>
+                        <br/>
+                        <label>FSD</label>
+                        <input type="checkbox" value="fsd" name="program"/>
+                        <label>DATA SCIENCE</label>
+                        <input type="checkbox" value="datascience" name="program"/>
+                    </div>
+                    <div>
+                        <label>Plese describe yourself</label>
+                        <textarea rows="5" cols="5" value="selfvalue">
+
+                        </textarea>
+                    </div>
+
+                    <div>
+                        <label>upload profile pic</label>
+                        <input type="file" value="profile"/>
+                    </div>
+
+                    <div>
+                        <label>Enter dob</label>
+                        <input type="date" value="dob" name="dob"/>
+                    </div>
+
+                    <div>
+                        <input type="submit" value="save"/>
+                        <input type="reset" value="clear"/>
+                    </div>
+
+                </form>
+        </div>
+    </body>
+</html>

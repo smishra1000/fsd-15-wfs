@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form2</title>
+    </head>
+    <body>
+        <form name="signup_form" method="get" action="formoutput.html">
+            <label>fname</label>
+            <input type="text" value="" name="fname" placeholder="enter fname here"/>
+            <label>email</label>
+            <input type="text" value="" name="email" placeholder="enter email here"/>
+            <label>password</label>
+            <input type="password" value="" name="password" placeholder="enter password here"/>
+            <input type="submit"/>
+            <label>Male</label>
+            <input type="radio" value="male" name="gender">
+            <label>Female</label>
+            <input type="radio" value="female" name="gender">
+
+            <label>Course</label>
+            <label>Mean</label>
+            <input type="checkbox" value="mean" name="course"/>
+            <label>python</label>
+            <input type="checkbox" value="python" name="course"/>
+            <label>mern</label>
+            <input type="checkbox" value="mern" name="course"/>
+
+            <select>
+                <option value="">select courses</option>
+                <option value="">MEAN</option>
+                <option value="">MERN</option>
+                <option value="">PYHTON</option>
+            </select>
+            <label>Address</label>
+            <textarea rows="2" cols="4"></textarea>
+            
+        </form>
+        <form name="value_Demo">
+            <label>fname</label>
+            <input type="text" value="" id="fname" name="fname" placeholder="please neter your first name"/>
+            <!-- <button onclick="display(event)">save</button> -->
+        </form>
+        <script>
+            // function display(e){
+            //     e.preventDefault();
+            //     let fname = document.getElementById("fname").value;
+            //     console.log(fname)
+            // }
+            
+        </script>
+    </body>
+</html>
+
+<!-- form--- name  action method 
+element---type value name placeholder  -->
