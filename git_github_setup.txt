@@ -18,4 +18,18 @@ after clicking you will get some instruction
 12>git status
 13> git commit -"some meaningful message"
 14>git remote add origin <repo_link> 
-15> git push -u origin master    
+15> git push -u origin master  
+
+
+commands are 
+
+1>git status
+2>git add . 
+3>git commit -m"some message"
+4>git push origin master(branch name)
+
+5> git chekcout -b branch_name
+    ex- git checkout -b branch1 
+
+6> git merge feature_branch 
+7> git checkout baranch_name
