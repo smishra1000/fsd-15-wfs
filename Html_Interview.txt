@@ -1,0 +1,17 @@
+1>What is html?
+2>What is use of Doctype 
+3>What is elements and attributes
+4>Explain tags in html
+5>Difference between block and inline elements 
+6>Difference between semantics and non semnatics elements
+7>Diffference between readonly and disabled 
+8>Use of required attribute 
+9>Explain anchor tag and its attributes 
+10>How to embed image on webpage 
+11>What is list,types of list and how to display list in html
+12>How to embed audio and video tag;
+13>What is iframe?
+14>Semantics tag-- header,footer, arcticle main, section nav,aside
+15>How to create form and explain form attrubtes name action method 
+16>Difference between get and post 
+17>Explain different types of input elements 
