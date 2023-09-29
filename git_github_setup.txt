@@ -18,4 +18,4 @@ after clicking you will get some instruction
 12>git status
 13> git commit -"some meaningful message"
 14>git remote add origin <repo_link> 
-15> git push origin master    
+15> git push -u origin master    
