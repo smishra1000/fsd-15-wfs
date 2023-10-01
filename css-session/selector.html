@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>css Selector demo </title>
+        <style>
+            /* universal selector  *  */
+            *{
+                color:red
+            }
+            /* element selector*/
+            h2{
+              color:blue  
+            }
+
+            /*  id selector*/
+            #head2{
+                color:cyan
+            }
+
+            /* class selector */
+            .head4{
+                color:green;
+            }
+            /* descendent selctor */
+                /* ul.food-menu li{
+                    color:brown;
+                } */
+            .food-menu li{
+                color:brown;
+            }
+
+            /* child selector*/
+            ul >li{
+               font-size: 30px; 
+            }
+
+            /* Adjacent sibling selector*/
+
+            /* h3+p{
+                color:pink
+            } */
+
+            /* general sibling selector */
+            h3~p{
+                color:pink
+            }
+        </style>
+    </head>
+    <body>
+        <h1>hello world</h1>
+        <p>hello paragraph</p>
+        <h2>hello heading 2</h2>
+        <h2>hello heading22</h2>
+        <h2 id="head2">hello heading 2222</h2>
+        <h4 class="head4">hello heading 4</h4>
+        <ul class="menu-list">
+            <li>home</li>
+            <li>aboutus</li>
+        </ul>
+        <ul class="food-menu">
+            <li>milk</li>
+            <li>egg</li>
+        </ul>
+        <div>
+            <h3>heading 3</h3>
+            <p>hello pargraph 333</p>
+            <p>hello heading new 3333</p>
+        </div>
+    </body>
+</html>

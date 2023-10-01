@@ -1,0 +1,9 @@
+body{
+    color: red;
+    /* background-color: cyan; */
+    background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-position: top left; 
+    background-size: cover;
+    height:700px;
+}

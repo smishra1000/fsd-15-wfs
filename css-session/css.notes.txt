@@ -1,0 +1,4 @@
+There are 3 ways to embed css 
+1>inline style 
+2>embedding style tag 
+3>external css
