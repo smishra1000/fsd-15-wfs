@@ -1,0 +1,55 @@
+.box{
+    width: 100px;
+    height: 100px;
+    margin-top:10px;
+    background-color: cyan;
+    display:block;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+ul{
+    background-color: teal;
+}
+ul>li{
+    display: inline-block;
+    padding:5px;
+    width: 120px;
+}
+
+.heading1{
+    /* display: none; */
+    visibility: hidden;
+}
+
+.heading2{
+    /* display: none; */
+    display: none
+}
+
+.table{
+    display: table;
+    /* border:2px solid red */
+}
+
+.row{
+    display: table-row;
+    /* border:2px solid red */
+}
+
+.cell{
+    display:table-cell;
+    border:2px solid red
+}
+
+.parent-card{
+    background-color: cyan;
+    display: flex;
+    flex-direction: column;
+}
+.card1,.card2,.card3{
+    background-color: yellow;
+    margin-left:5px;
+    margin-top: 5px;
+    height: 50px;
+}
