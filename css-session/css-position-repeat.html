@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            border:2px solid red;
+            margin: 3px;
+        }
+        .box2{
+            position: relative;
+            left :40px;
+        }
+
+        .parent1{
+            border: 2px solid green;
+            /* position: relative; */
+            height:100px;
+            
+        }
+        .parent2{
+            border: 2px solid blue;
+            height: 60px;
+        }
+        .child{
+            border: 2px solid red;
+            position: absolute;
+            top:10px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- static by default -->
+    <!-- <h1 style="background-color: red;">hello world</h1> -->
+<!-- relative position-->
+<!-- <div class="box">
+    hi i am box1
+</div>
+<div class="box2 box">
+    hi i am box2
+</div> -->
+<!-- position absolute-->
+
+<!-- <div class="parent1">
+    <div class="parent2">
+        <div class="child">
+            child
+        </div>
+    </div>
+</div> -->
+<!-- fixed position css-->
+<!-- <div style="height:80vh;overflow-y: scroll;border: 2px solid red;">
+    <h1 style="background-color: yellow;position: fixed;">hello i am fixed</h1>
+</div> -->
+
+<!-- sticky position-->
+
+<div style="height:120vh;border: 2px solid red;overflow-y: scroll;">
+    
+</div>
+<h1 style="position:sticky;bottom: 0;background-color: yellow;">hello i am sticky</h1>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .margin-box {
+            width: 300px;
+            height: 300px;
+            background-color: #b08354;
+            border: 2px dashed #000;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .margin-text{
+            position: absolute;
+            top:0px;
+            left:9px;
+        }
+
+        .border-box {
+            background-color: #dcbe7e;
+            width: 260px;
+            height: 260px;
+            display: flex;
+            border: 2px solid #000;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .border-text{
+            position: absolute;
+            top:0px;
+            left:9px;
+        }
+
+        .padding-box {
+            background-color: #b8c480;
+            width: 220px;
+            height: 220px;
+            display: flex;
+            border: 2px dashed #000;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .pading-text{
+            position: absolute;
+            top:0px;
+            left:9px;
+        }
+
+        .content-box {
+            background-color: #88b2bd;
+            width: 180x;
+            height: 30px;
+            display: flex;
+            border: 2px solid #000;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="margin-box">
+        <span class="margin-text">Margin</span>
+        <div class="border-box">
+            <span class="border-text">Border</span>
+            <div class="padding-box">
+                <span class="pading-text">Padding</span>
+                <div class="content-box">
+                    696 * 500
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
