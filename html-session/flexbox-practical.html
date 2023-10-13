@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox practical</title>
+    <style>
+        .place-menu{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .menu1{
+            background-color: #000;
+            border-radius: 40%;
+            color: #fff;
+            width: 100px;
+            height:40px;
+            justify-content: center;
+            align-items: center;
+            display: flex
+        }
+        .image-container{
+            display: flex;
+            width: 1300px;
+            flex-direction: row;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .image-item{
+            width: 300px;
+            height: 250px;
+        }
+       img{
+            width: 100%;
+            object-fit: cover;
+            height: 100%
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <h1>KNOW YOUR STATION</h1>
+       <div class="place-menu">
+            <div class="menu menu1">DELHI</div>
+            <div class="menu">MUMBAI</div>
+            <div class="menu">JAIPUR</div>
+            <div class="menu">CHENNAI</div>
+            <div class="menu">PUNE</div>
+            <div class="menu">HYDERABAD</div>
+            <div class="menu">KOLKATA</div>
+            <div class="menu">SURAT</div>
+            <div class="menu">KANPUR</div>
+            <div class="menu">KANPUR</div>
+            <div class="menu">MORE</div>
+       </div>
+       <div class="image-container">
+            <div class="image-item">
+                <img src="https://raildrishti.indianrailways.gov.in/raildrishti/IRDBSubInitFileDownload?fname=74_curr_1_DLI_DRM_DLI_20210916.jpeg"/>
+            </div>
+            <div class="image-item">
+                <img src="https://raildrishti.indianrailways.gov.in/raildrishti/IRDBSubInitFileDownload?fname=74_curr_3_DLI_DRM_DLI_20210526.jpg"/>
+            </div>
+            <div class="image-item">
+                <img src="https://raildrishti.indianrailways.gov.in/raildrishti/IRDBSubInitFileDownload?fname=74_curr_1_DLI_DRM_DLI_20210916.jpeg"/>
+            </div>
+            <div class="image-item">
+                <img src="https://raildrishti.indianrailways.gov.in/raildrishti/IRDBSubInitFileDownload?fname=74_curr_1_DLI_DRM_DLI_20210916.jpeg"/>
+            </div>
+            <div class="image-item">
+                <img src="https://raildrishti.indianrailways.gov.in/raildrishti/IRDBSubInitFileDownload?fname=74_curr_1_DLI_DRM_DLI_20210916.jpeg"/>
+            </div>
+            <div class="image-item">
+                <img src="https://raildrishti.indianrailways.gov.in/raildrishti/IRDBSubInitFileDownload?fname=74_curr_1_DLI_DRM_DLI_20210916.jpeg"/>
+            </div>
+            <div class="image-item">
+                <img src="https://raildrishti.indianrailways.gov.in/raildrishti/IRDBSubInitFileDownload?fname=74_curr_5_DLI_DRM_DLI_20210526.jpg"/>
+            </div>
+            <div class="image-item">
+                <img src="https://raildrishti.indianrailways.gov.in/raildrishti/IRDBSubInitFileDownload?fname=74_curr_1_DLI_DRM_DLI_20210916.jpeg"/>
+            </div>
+       </div>
+    </div>
+</body>
+</html>
