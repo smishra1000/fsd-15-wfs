@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Grid child properties
+    </title>
+    <style>
+        .parent{
+            background-color: #ddd;
+            border: 2px solid red;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap:10px
+        }
+        .child{
+            border:2px solid green
+        }
+        .item1{
+            /* grid-column: 1/4; */
+            /* grid-column-start: 1;
+            grid-column-end: 4; */
+            /* grid-row: 1/span 3 */
+            grid-area: 1/1/3/3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="child item1">
+            item 1
+        </div>
+        <div class="child">
+            item 2
+        </div>
+        <div class="child">
+            item 3
+        </div>
+        <div class="child">
+            item 4
+        </div>
+        <div class="child">
+            item 5
+        </div>
+    </div>
+</body>
+
+</html>
