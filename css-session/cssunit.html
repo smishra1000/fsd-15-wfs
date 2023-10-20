@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+            css unit demo--realtive absolute
+        </title>
+        <style>
+            html{
+                font-size: 5px;
+            }
+            .box{
+                width:500px;
+                height:200px;
+                background-color: red;
+            }
+            .parent{
+                width:100%;
+                height:100%;
+                background-color: green;
+            }
+            .child{
+                width: 30%;
+                height: 30%;
+                border: 2px solid blue;
+            }
+
+            .parent2{
+                font-size: 16px;
+
+            }
+            .child-text{
+                font-size: 2rem;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- absolute units are fixed units/length it wont chnage -->
+        <!-- <div class="box">Hi i am box</div> -->
+        <!-- Relative units - it will chnage relative to other elements-->
+        <div class="parent">
+            hi
+            <div class="child">
+                hoi
+            </div>
+        </div>
+
+        <!---- em relative unit-->
+        <div class="parent2">
+            <p class="child-text">hi learning em relative units</p>
+        </div>
+
+    </body>
+</html>
