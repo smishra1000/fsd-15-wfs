@@ -1,0 +1,25 @@
+1. what is css how to apply css in webpage?
+ans-css is cascading stylesheet rule ; using css we can style our web page layout.
+    we can apply responsivness to our web page. we can transform element using translate skey scale rotate
+    1>inline style , 2>external style 3> embedding inside style tag
+    <link rel="stylesheet href="custom.css"
+
+2> what is box model in css 
+3> what is difference between class and id ?
+ans-
+4> explain box sizing in css 
+5>explain postion in css types of position values-static,absolute fixed, relative sticky
+6>different types of selectors 
+7> what is css specificity/ranking 
+8> what is z-index  ? works only when you set position value
+9>what is relative and abolsute unit ---em rem %    px inch cm 
+10>difference between display none and visibilty hidden?
+11> flexbox --
+
+12> please make an element centrally align horizontal vertcial
+13>grid system 
+14> difference betwen block inline inline-block 
+15>what is responsivne deigne ; explain about media query 
+
+
+

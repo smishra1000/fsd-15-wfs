@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Card demo</title>
+    <style>
+        .card-conatiner{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+        .card{
+            border: 2px solid;
+        }
+        @media (max-width:800px){
+            .card-conatiner{
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-conatiner">
+            <div class="card">
+                <img src="https://knorish-asset-cdn.azureedge.net/knorish-static-assets/images/v1/livesession/livesession-8.png" width="100%" height="100px" style="object-fit: cover;"/>
+                <div class="card-body">
+                    <h4>TITLE1</h4>
+                    <p>MEAN stack is combination of mongo express angualr node</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://knorish-asset-cdn.azureedge.net/knorish-static-assets/images/v1/livesession/livesession-8.png" width="100%" height="100px" style="object-fit: cover;"/>
+                <div class="card-body">
+                    <h4>TITLE1</h4>
+                    <p>MEAN stack is combination of mongo express angualr node</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://knorish-asset-cdn.azureedge.net/knorish-static-assets/images/v1/livesession/livesession-8.png" width="100%" height="100px" style="object-fit: cover;"/>
+                <div class="card-body">
+                    <h4>TITLE1</h4>
+                    <p>MEAN stack is combination of mongo express angualr node</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://knorish-asset-cdn.azureedge.net/knorish-static-assets/images/v1/livesession/livesession-8.png" width="100%" height="100px" style="object-fit: cover;"/>
+                <div class="card-body">
+                    <h4>TITLE1</h4>
+                    <p>MEAN stack is combination of mongo express angualr node</p>
+                </div>
+            </div>
+    </div>
+</body>
+</html>

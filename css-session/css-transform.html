@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            css transform
+        </title>
+        <style>
+            body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height:80vh
+            }
+            .box{
+                width: 120px;
+                height: 120px;
+                background-color: red;
+                transition: 2s;
+            }
+            .box:hover{
+                /* transform: translate(-50px); */
+                /* transform: scale(1.5); */
+                /* transform: rotate(360deg); */
+
+                transform: skew(30deg,30deg);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Css Transform</h1>
+        <div class="box">
+
+        </div>
+    </body>
+</html>
