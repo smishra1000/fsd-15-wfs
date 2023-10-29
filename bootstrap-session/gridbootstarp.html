@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid demo bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        .row {
+            /* background-color: cyan; */
+        }
+
+        .col {
+            border: 2px solid red;
+        }
+
+        .col-md-10 {
+            border: 2px solid green
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="row">
+        <div class="col">
+            item1
+        </div>
+        <div class="col">
+            item2
+        </div>
+        <div class="col">
+            item3
+
+        </div>
+        <div class="col">
+            item4
+
+        </div>
+    </div> -->
+
+    <!-- <div class="row">
+        <div class="col-md-4">
+            box1
+        </div>
+        <div class="col-md-4">
+            box2
+        </div>
+        <div class="col-md-4">
+            box3
+        </div>
+    </div> -->
+    <div class="container">
+        <div class="row main-container">
+            <div class="col-md-8 col-sm-12">
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="col-md-2 col-sm-12">
+                <table class="table table-success table-striped-columns">
+                    <tr class="table-primary">
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                    </tr>
+                    <tr class="table-danger">
+                        <td>101</td>
+                        <td>Sameer</td>
+                        <td>Hyd</td>
+                    </tr>
+                    <tr class="table-warning">
+                        <td>102</td>
+                        <td>Test3</td>
+                        <td>Blr</td>
+                    </tr>
+                    <tr class="table-warning">
+                        <td>102</td>
+                        <td>Test3</td>
+                        <td>Blr</td>
+                    </tr>
+                    <tr class="table-warning">
+                        <td>102</td>
+                        <td>Test3</td>
+                        <td>Blr</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            open Signup form
+        </button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Signup form</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp">
+                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            </div>
+                            <button type="submit" class="btn btn-warning">Submit</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--dropdown component-->
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Select Course
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">MEAN</a></li>
+            <li><a class="dropdown-item" href="#">MERN</a></li>
+            <li><a class="dropdown-item" href="#">Python</a></li>
+        </ul>
+    </div>
+
+    <!-- carausal demo-->
+    <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://www.irctc.co.in/nget/assets/images/exterior.jpg" class="" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://www.irctc.co.in/nget/assets/images/Thailand.jpg" class="" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://www.irctc.co.in/nget/assets/images/Kashmir.jpg" class="0" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
