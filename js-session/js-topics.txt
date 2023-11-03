@@ -1,0 +1,14 @@
+variables
+data types 
+operators 
+conditional statement 
+loop
+function 
+array 
+string
+objects 
+dom 
+oops 
+es6
+Advance js 
+

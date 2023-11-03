@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+            flex-direction: column;
+            gap:10px;
+            width: 400px;
+        }
+        .box{
+            width: 120px;
+            height:120px;
+            background-color: blue;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" value="" id="colorname" placeholder="enter color name"/>
+        <div class="box" id="box1">
+                box1
+        </div>
+        <button onclick="changeColor()">change Background</button>
+        <button>hide</button>
+        <button>show</button>
+    </div>
+    
+    <script>
+        function changeColor(){
+            let colorname=document.getElementById("colorname").value
+            let box = document.getElementById("box1")
+            box.style.background=colorname
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data types </title>
+</head>
+<body>
+    <script>
+        // string data type
+        var name = 'sameer'
+        var paragraph = "Hi i am sameer mishra"
+        console.log(typeof name)
+        console.log(typeof(typeof paragraph))
+
+        // number data type
+        var a = -4;
+        console.log(a)
+        console.log(typeof a)
+
+        // boolean data type 
+
+        var isPaid = true;
+        var isMarried = false;
+
+        console.log(typeof isPaid)
+        console.log(typeof isMarried)
+
+        // undefined data type
+
+        var age;
+        console.log(age)
+        console.log(typeof age)
+
+        //null data types 
+
+        var name = null// 0 or "";
+        console.log(name)
+        console.log(typeof name)
+
+        console.log(typeof null)// it will return object
+
+        // obejct data type
+        var user ={
+            name:"sameer",
+            age:16,
+            email:"test@gmail.com"
+        }
+
+        var student = {
+            name:"test1",
+            age:20,
+            roll:101,
+            address:"hyd",
+            phone:"131313131"
+        }
+
+        console.log(user)
+        console.log(student)
+        console.log(typeof user)
+        console.log(typeof student)
+
+        let employee = {
+            name:"test1",
+            salary:20000,
+            email:"test1@gmail.com"
+        }
+
+        console.log(employee)
+        console.log(typeof employee)
+        console.log(employee.email)
+        console.log(employee.salary)
+        // document.write("employee info")
+        // document.write("<br/>")
+        // document.write("<h1>name is :</h1> ",employee.name)
+        console.log(employee["email"])
+
+        // array data types
+
+        let ages = [20,40,50,70]
+        console.log(ages)
+        console.log(typeof ages)
+        console.log(ages[0])
+        console.log(ages[1])
+        console.log(ages[2])
+        console.log(ages[3])
+        console.log(ages[4])
+
+        // function type 
+        function printhello(){
+            console.log('hello!!!')
+        }
+
+        function greet(){
+            console.log("hi good morning")
+        }
+        printhello();
+        printhello();
+        console.log(typeof printhello)
+
+        greet();
+        greet();
+        greet();
+        greet();
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

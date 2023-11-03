@@ -39,3 +39,21 @@ head
 
 
 home    aboutus  contactus
+
+
+https://www.irctctourism.com/tourpacakage_search?searchKey=&tagType=&travelType=&category=East%20India
+
+html css bootstrap 
+
+js--javascript----language fundamentals ---dom-----advance js-----
+application dom-- 
+es6 clousre hositing class object call apply bind promise async await callback
+
+
+html css ----accordian concept of bootstarp 
+
+interview.html 
+navbar 
+    logo   html css
+         
+
