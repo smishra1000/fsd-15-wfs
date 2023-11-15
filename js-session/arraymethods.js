@@ -1,35 +1,35 @@
-let array = [20,30,40,50]
+// let array = [20,30,40,50]
 
 //find ---
 //wap to search 40
 
-let foundElement = array.find(function(currEle,index,array){
-   return currEle===40
-})
-let found = array.findIndex(function(currEle,index,array){
-    return currEle===40
-})
+// let foundElement = array.find(function(currEle,index,array){
+//    return currEle===40
+// })
+// let found = array.findIndex(function(currEle,index,array){
+//     return currEle===40
+// })
 
-console.log(found)
+// console.log(found)
 
-let users = [
-    {
-        id:101,
-        name:"test"
-    },
-    {
-        id:102,
-        name:"test2"
-    },
-    {
-        id:103,
-        name:"test3"
-    },
-    {
-        id:104,
-        name:"test4"
-    }
-]
+// let users = [
+//     {
+//         id:101,
+//         name:"test"
+//     },
+//     {
+//         id:102,
+//         name:"test2"
+//     },
+//     {
+//         id:103,
+//         name:"test3"
+//     },
+//     {
+//         id:104,
+//         name:"test4"
+//     }
+// ]
 // wap to find user which has id=103
 // let foundUser = users.find(function(curr,index,arr){
 //     return curr.id===103
@@ -114,38 +114,95 @@ let users = [
 
 // console.log(sum)
 
-let employees = [
-    {
-        id:101,
-        name:"test1",
-        address:"hyd"
-    },
-    {
-        id:102,
-        name:"test2",
-        address:"hyd"
-    },
-    {
-        id:103,
-        name:"test3",
-        address:"hyd"
-    },
-    {
-        id:104,
-        name:"test4",
-        address:"hyd"
-    }
-]
-console.log(employees)
+// let employees = [
+//     {
+//         id:101,
+//         name:"test1",
+//         address:"hyd"
+//     },
+//     {
+//         id:102,
+//         name:"test2",
+//         address:"hyd"
+//     },
+//     {
+//         id:103,
+//         name:"test3",
+//         address:"hyd"
+//     },
+//     {
+//         id:104,
+//         name:"test4",
+//         address:"hyd"
+//     }
+// ]
+// console.log(employees)
 // wap to update on employee which has id=103 with new details: address:Blr
 
-let newArray = employees.map(function(curr,index,arr){
-    if(curr.id===103){
-        curr.address="Blr"
-        return curr
-    }else{
-        return curr;
-    }
+// let newArray = employees.map(function(curr,index,arr){
+//     if(curr.id===103){
+//         curr.address="Blr"
+//         return curr
+//     }else{
+//         return curr;
+//     }
+// })
+
+// console.log("after chnaging address employees=",newArray)
+
+//forEach 
+
+let numbers = [20,30,40,50]
+// for(let i=0;i<numbers.length;i++){
+//     console.log(numbers[i])
+// }
+let result = numbers.forEach(function(curr,index,arr){
+    console.log(curr,index,arr)
+})
+let result2 = numbers.map(function(curr,index,arr){
+    console.log(curr,index,arr)
 })
 
-console.log("after chnaging address employees=",newArray)
+console.log(result,result2)
+
+// map---when you want to transform elements in a an Array
+// find--when you want to select single elemnet from an array 
+// reduce--when you want to get single value from multiple elements in ana rray 
+// filter-- when you wnat to filter the elements in array 
+// forEach----execute  a function for each element;
+// --input---
+
+// Assignment-----
+// let players = [
+//     {
+//         name:"test1",
+//         team: "A"
+//     },
+//     {
+//         name:"test2",
+//         team: "A"
+//     },
+//     {
+//         name:"test3",
+//         team: "B"
+//     },
+//     {
+//         name:"test4",
+//         team: "A"
+//     },
+//     {
+//         name:"test5",
+//         team: "B"
+//     },
+//     {
+//         name:"test6",
+//         team: "A"
+//     }
+// ]
+
+
+// output
+// {
+//     "A":[{name:"test1"},{name:"test2"},{name:"test4"},{name:"test"}],
+//     "B":[{name:"test5"},{name:"test3"}]
+// }
