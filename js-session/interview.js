@@ -1,0 +1,21 @@
+
+
+// Important one
+// var age = 100;
+// var name="test1"
+// let user = {
+//     name:"sameer",
+//     age:50,
+//     showName:function(){
+//         console.log(this.name);//sameer
+//         console.log(this.age);//50
+//     },
+//     showName2:()=>{
+//         console.log(this.name)
+//     }
+// }
+
+// user.showName();
+// user.showName2();
+
+// Object,this call apply bind -----hositing scoping , how js works -

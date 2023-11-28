@@ -86,12 +86,12 @@ employee.showInfo();
 // scope in js -----
 // ----  function scope/local scope ----global scope ----block scope
 
-"this"---- 
-object createion---object .crreate assign new  constructor function 
-call apply bind---
-oops / encapsulation data abstratcion class object inheritance 
-es6 
-async js 
+// "this"---- 
+// object createion---object .crreate assign new  constructor function 
+// call apply bind---
+// oops / encapsulation data abstratcion class object inheritance 
+// es6 
+// async js 
 
 
 
