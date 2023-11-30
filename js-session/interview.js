@@ -35,3 +35,46 @@
 // },0)
 
 // console.log("3")
+
+
+// 3 
+// for(let i=0;i<4;i++){
+//     console.log(i);//0123
+// }
+// console.log("here",i);//error
+
+// for(var j=0;j<4;j++){
+//     console.log(j);//0123
+// }
+// console.log("here2",j);//4
+
+// 4. 
+
+// function greet2(){
+//     console.log(this) ;//Window
+// }
+
+// let greet = ()=>{
+//     console.log(this);//Window
+// }
+
+// greet();
+// greet2();
+
+//5 
+
+let x = 5;
+let y = "5"
+console.log(x==y);//
+console.log(x===y);//
+
+//q. 6. 
+var p=100;
+var p=200;
+console.log(p)
+
+//q. 7 
+//var d =undefined
+console.log(d)
+var d = 500;
+console.log(d)
