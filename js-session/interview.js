@@ -63,18 +63,122 @@
 
 //5 
 
-let x = 5;
-let y = "5"
-console.log(x==y);//
-console.log(x===y);//
+// let x = 5;
+// let y = "5"
+// console.log(x==y);//
+// console.log(x===y);//
 
 //q. 6. 
-var p=100;
-var p=200;
-console.log(p)
+// var p=100;
+// var p=200;
+// console.log(p)
 
 //q. 7 
 //var d =undefined
-console.log(d)
-var d = 500;
-console.log(d)
+// console.log(d)
+// var d = 500;
+// console.log(d)
+
+//Question 8 
+
+let users = [
+    {
+        id:1,
+        name:"test1",
+        company:"ABC"
+    },
+    {
+        id:2,
+        name:"test2",
+        company:"DEF"
+    },
+    {
+        id:3,
+        name:"test3",
+        company:"ABC"
+    },
+    {
+        id:4,
+        name:"test4",
+        company:"ABC"
+    },
+    {
+        id:5,
+        name:"test5",
+        company:"DEF"
+    },
+    {
+        id:5,
+        name:"test6",
+        company:"DEF"
+    }
+]
+
+// {
+//     "ABC":[{
+//         id:1,
+//         name:"test1",
+//         company:"ABC"
+//     },{
+//         id:4,
+//         name:"test4",
+//         company:"ABC"
+//     },{
+//         id:3,
+//         name:"test3",
+//         company:"ABC"
+//     }],
+//     "DEF":[{
+//         id:5,
+//         name:"test5",
+//         company:"DEF"
+//     },{
+//         id:2,
+//         name:"test2",
+//         company:"DEF"
+//     }]
+// }
+
+// function groupDataByKey(data,groupKey){
+//     let resultObj = {}
+//     for(let i=0;i<data.length;i++){
+//         let obj = data[i];
+//         let key = obj[groupKey]
+//         if(!resultObj[key]){   
+//             resultObj[key] = []
+//         }
+    
+//         resultObj[key].push(obj)
+//     }
+//     return resultObj;
+// }
+
+// let finalData = groupDataByKey(users,"company")
+// let finalData2 = groupDataByKey(users,"id")
+// console.log(finalData2)
+
+//Question . 9
+
+function startProgress(){
+    let increment = 0
+    let pbr1 = document.getElementById("progress");
+    let progInterval = setInterval(function(){
+        if(increment===100){
+            clearInterval(progInterval)
+        }else{
+            increment = increment +10
+            pbr1.style.width = increment+'%';
+        }
+    },1000)
+
+}
+
+function getusers(){
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(json => console.log(json))
+}
+
+getusers();
+console.log("hii got users")
+

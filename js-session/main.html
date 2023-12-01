@@ -25,6 +25,18 @@
             background-color: cyan;
             text-align: center;
         }
+        #progress-bar{
+            width: 200px;
+            height: 30px;
+            background-color: darkgrey;
+            border-radius: 5px;
+        }
+        #progress{
+            background-color: green;;
+            width: 0%;
+            border-radius: 5px;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
@@ -55,5 +67,13 @@
     <!-- <script src="async-sync.js"></script> -->
     <!-- <script src="async-await.js"></script> -->
     <!-- <script src="timerfunction.js"></script> -->
+    <div id="progress-bar">
+        <div id="progress">
+
+        </div>
+    </div>
+
+    <button onclick="startProgress()">start</button>
+
 </body>
 </html>
