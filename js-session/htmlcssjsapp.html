@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My App using HTML CSS JS</title>
+        <style>
+            #head-section{
+                background-color: coral;
+                text-align: center;
+                padding: 10px;
+            }
+            #login-section,#signup-section{
+                height: 50vh;
+                padding:20px;
+                background-color: antiquewhite;
+            }
+            #login-btn,#signup-btn{
+                width:80px;
+                height:40px;
+                padding: 5px;
+                background-color: coral;
+            }
+        </style>
+    </head>
+    <body>
+        <header id="head-section">
+            <h1>welcome to My app</h1>
+        </header>
+        <main>
+            <!-- Login section-->
+            <div id="login-section">
+                <h1>Login</h1>
+                <form>
+                    <label>Email</label>
+                    <input type="text" value="" placeholder="enter your email" id="l-email"/>
+                    <label>password</label>
+                    <input type="password" value="" placeholder="enter your password" id="l-password"/>
+                    <button id="login-btn" onclick="login(event)">Login</button>
+                    <p>Don't have account please <a href="#" onclick="goToSignup()">Signup</a> here</p>
+                </form>
+            </div>
+            <!-- signup section-->
+            <div id="signup-section">
+                <h1>Signup</h1>
+                <form>
+                    <label>Email</label>
+                    <input type="text" value="" placeholder="enter your email" id="s-email"/>
+                    <label>password</label>
+                    <input type="password" value="" placeholder="enter your password" id="s-password"/>
+                    <button id="signup-btn" onclick="signup(event)">Signup</button>
+                    <p>Alredy an account please <a href="#" onclick="goToLogin()">Login</a> here</p>
+                </form>
+            </div>
+            <!-- dashbaord section-->
+            <div id="dashboard-section">
+                <h1>Dashboard</h1>
+                <h4>Hi, Welcome to my App <span id="email-text"></span></h4>
+                <button onclick="logout(event)">Logout</button>
+            </div>
+        </main>
+        <script>
+            // initially it should show signup div 
+            let signupDiv = document.getElementById("signup-section")
+            let loginDiv = document.getElementById("login-section")
+            let dashboardDiv = document.getElementById("dashboard-section")
+            dashboardDiv.style.display="none"
+            loginDiv.style.display="none"
+
+            function goToSignup(){
+                signupDiv.style.display="block"
+                loginDiv.style.display="none"
+                dashboardDiv.style.display="none"
+            }
+
+            function goToLogin(){
+                loginDiv.style.display="block"
+                signupDiv.style.display="none"
+                dashboardDiv.style.display="none"
+            }
+
+            function goToDashboard(email){
+                loginDiv.style.display="none"
+                signupDiv.style.display="none"
+                dashboardDiv.style.display="block"
+                let emailText = document.getElementById("email-text")
+                emailText.textContent=email
+                emailText.style.color="red"
+                emailText.style.fontSize="20px"
+            }
+
+            async function signup(e){
+                e.preventDefault();
+                let email = document.getElementById("s-email").value;
+                let password=document.getElementById("s-password").value;
+                console.log(email,password)
+                await localStorage.setItem(email,password)
+                resetSignup();
+                goToLogin();
+
+            }
+
+            async function login(event){
+                event.preventDefault()
+                let email = document.getElementById("l-email").value
+                let password=document.getElementById("l-password").value
+                let user = await localStorage.getItem(email)
+                if(!user){
+                    alert("user not found")
+                }else{
+                    if(user===password){
+                        alert("login success")
+                        localStorage.setItem("loggedInUser",email)
+                        goToDashboard(email)
+                    }else{
+                        alert("invalid credentials")
+                    }
+                }
+            }
+
+            async function logout(){
+                //let loggedInUser = localStorage.getItem("loggedInUser")
+                // await localStorage.removeItem(loggedInUser)
+                await localStorage.removeItem("loggedInUser")
+                goToLogin();
+                resetLogin();
+            }
+
+            function resetLogin(){
+                document.getElementById("l-email").value=""
+                document.getElementById("l-password").value=""
+            }
+            function resetSignup(){
+                document.getElementById("s-email").value=""
+                document.getElementById("s-password").value=""
+            }
+
+
+        </script>
+    </body>
+</html>
