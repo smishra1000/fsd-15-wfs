@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        react intro
+    </title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</head>
+
+<body>
+    <div id="main">
+
+    </div>
+    <script>
+       // let h1 = React.createElement("h1",{style:{color:'red'}},"hello world")
+
+        const Header = ()=>{
+            return  React.createElement("h1",{style:{color:'red'}},"hello world")
+        }
+        ReactDOM.render(React.createElement(Header),document.getElementById("main"))
+    </script>
+</body>
+
+</html>
