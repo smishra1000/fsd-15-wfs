@@ -2,37 +2,44 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
-  mode: 'development',
+  entry: path.join(__dirname, "src", "index.js"),
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    path:path.resolve(__dirname, "dist"),
   },
   devServer: {
-    static: path.resolve(__dirname, 'dist'),
-    port: 9000
-},
+    client: {
+      overlay: false,  // disable full screen overla
+    }  
+   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.?js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
-        },
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react']
+          }
+        }
       },
       {
-        test: /\.jsx$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
+        test: /\.(png|jp(e*)g|svg|gif)$/,
+        use: ['file-loader'],
       },
-    ],
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html', // Specify your HTML template
+      template: path.join(__dirname, "src", "index.html"),
     }),
   ],
-};
+}
