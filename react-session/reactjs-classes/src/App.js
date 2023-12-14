@@ -3,7 +3,11 @@ import Footer from "./Footer";
 import Greet from "./Greet";
 import Header from "./Header";
 import MyResume from "./MyResume";
+import ParentAge from "./ParentAge";
+import ParentColor from "./ParentColor";
 import Users from "./Users";
+import EventHandling from "./EventHandling";
+
 
 function App() {
   const sum = ()=>{
@@ -17,8 +21,18 @@ function App() {
       {/* <MyResume/> */}
       {/* <Employee/> */}
       {/* <Greet msg="good morning" name="sameer" sum={()=>sum()}/> */}
-      <Users/>
+      {/* <Users/> */}
       {/* <Footer/> */}
+      {/* <Parent/>
+      <Careerx/>
+      
+   */}
+
+   {/* <ParentAge/> */}
+   {/* <ParentColor/> */}
+   <EventHandling/>
+
+      
     </div>
   );
 }
