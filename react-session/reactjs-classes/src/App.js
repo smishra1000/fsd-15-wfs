@@ -7,6 +7,9 @@ import ParentAge from "./ParentAge";
 import ParentColor from "./ParentColor";
 import Users from "./Users";
 import EventHandling from "./EventHandling";
+import Counter from "./Counter";
+import FormHandling from "./FormHandling";
+import EmployeeForm from "./EmployeeForm";
 
 
 function App() {
@@ -30,7 +33,11 @@ function App() {
 
    {/* <ParentAge/> */}
    {/* <ParentColor/> */}
-   <EventHandling/>
+   {/* <EventHandling/> */}
+
+   {/* <Counter/> */}
+   {/* <FormHandling/> */}
+   <EmployeeForm/>
 
       
     </div>

@@ -24,6 +24,10 @@ class EventHandling extends React.Component{
         console.log(e.target.value)
         this.setState({name:e.target.value})
     }
+    
+    eventhandling4 = ()=>{
+        console.log("4th way event handlin4")
+    }
 
     render(){
         return(
@@ -32,6 +36,7 @@ class EventHandling extends React.Component{
                 <button onClick={this.eventhandling1}>eventhandling1</button>
                 <button onClick={this.eventhandling2.bind(this)}>eventhandling2</button>
                 <button onClick={()=>this.eventhandling3()}>eventhandling3</button>
+                <button onClick={this.eventhandling4}>eventhandling4</button>
                 <input type="text" value={this.state.name} placeholder="enter name" onChange={(e)=>this.nameChange(e)}/>
 
             </div>
