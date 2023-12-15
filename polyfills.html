@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            polyfillls demo
+        </title>
+    </head>
+    <body>
+        <script>
+            let arr =[2,4,6,8,10]
+            // let doubleArr = arr.map((item)=>{
+            //     return item*2
+            // })
+            // console.log(arr,doubleArr)
+
+            Array.prototype.sameerMap = function(callback){
+                    let result = [];
+                    for(let i=0;i<this.length;i++){
+                        result.push(callback(this[i]))
+                    }
+                    return result
+
+            }
+
+            let doubleArr = arr.sameerMap((item)=>{
+                return item*2
+            })
+            console.log(doubleArr)
+        </script>
+    </body>
+</html>
