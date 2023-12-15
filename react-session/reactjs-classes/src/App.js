@@ -11,15 +11,17 @@ import Counter from "./Counter";
 import FormHandling from "./FormHandling";
 import EmployeeForm from "./EmployeeForm";
 
+import {BrowserRouter,Routes,Route,Link} from "react-router-dom"
+import Home from "./Pages/Home"
+import Aboutus from "./Pages/Aboutus"
+import Contactus from "./Pages/Contactus"
+import NavBar from "./Pages/NavBar";
+
 
 function App() {
-  const sum = ()=>{
-    
-  }
   return (
     <div>
       {/* <Header/> */}
-      <h1>Welcome to react js classes</h1>
       {/* <MyResume/> */}
       {/* <MyResume/> */}
       {/* <Employee/> */}
@@ -37,9 +39,28 @@ function App() {
 
    {/* <Counter/> */}
    {/* <FormHandling/> */}
-   <EmployeeForm/>
+   {/* <EmployeeForm/> */}
+   {/* bootstarp integration testing */}
+   {/* <button className="btn btn-primary">Login</button>
+   <button className="btn btn-danger">Logout</button> */}
 
-      
+     
+
+      <BrowserRouter>
+      {/* <ul>
+      <li>
+        <Link to="home">Home</Link>
+        <Link to="aboutus">Aboutus</Link>
+        <Link to="contactus">Contactus</Link>
+      </li>
+    </ul> */}
+    <NavBar/>
+      <Routes>
+        <Route path="home" element={<Home/>}></Route>
+        <Route path="aboutus" element={<Aboutus/>}></Route>
+        <Route path="contactus" element={<Contactus/>}></Route>
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }
