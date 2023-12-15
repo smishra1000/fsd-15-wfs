@@ -25,6 +25,9 @@ class NavBar extends React.Component {
                             <li class="nav-item">
                                 <Link class="nav-link active" aria-current="page" to="courses">Courses</Link>
                             </li>
+                            <li class="nav-item">
+                                <Link class="nav-link active" aria-current="page" to="counterexample">Counter</Link>
+                            </li>
 
                         </ul>
                     </div>

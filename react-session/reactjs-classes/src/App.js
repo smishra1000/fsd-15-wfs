@@ -7,7 +7,7 @@ import ParentAge from "./ParentAge";
 import ParentColor from "./ParentColor";
 import Users from "./Users";
 import EventHandling from "./EventHandling";
-import Counter from "./Counter";
+
 import FormHandling from "./FormHandling";
 import EmployeeForm from "./EmployeeForm";
 
@@ -17,6 +17,7 @@ import Aboutus from "./Pages/Aboutus"
 import Contactus from "./Pages/Contactus"
 import NavBar from "./Pages/NavBar";
 import Courses from "./Pages/Courses";
+import Counter from "./Pages/Counter";
 
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
         <Route path="aboutus" element={<Aboutus/>}></Route>
         <Route path="contactus" element={<Contactus/>}></Route>
         <Route path="courses" element={<Courses/>}></Route>
+        <Route path="counterexample" element={<Counter/>}></Route>
       </Routes>
       </BrowserRouter>
     </div>
