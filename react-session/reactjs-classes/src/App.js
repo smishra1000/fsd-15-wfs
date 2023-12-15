@@ -16,6 +16,7 @@ import Home from "./Pages/Home"
 import Aboutus from "./Pages/Aboutus"
 import Contactus from "./Pages/Contactus"
 import NavBar from "./Pages/NavBar";
+import Courses from "./Pages/Courses";
 
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
         <Route path="home" element={<Home/>}></Route>
         <Route path="aboutus" element={<Aboutus/>}></Route>
         <Route path="contactus" element={<Contactus/>}></Route>
+        <Route path="courses" element={<Courses/>}></Route>
       </Routes>
       </BrowserRouter>
     </div>
