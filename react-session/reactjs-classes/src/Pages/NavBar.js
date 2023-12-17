@@ -28,6 +28,12 @@ class NavBar extends React.Component {
                             <li class="nav-item">
                                 <Link class="nav-link active" aria-current="page" to="counterexample">Counter</Link>
                             </li>
+                            <li class="nav-item">
+                                <Link class="nav-link active" aria-current="page" to="lifecycle">Lifecycle demo</Link>
+                            </li>
+                            <li class="nav-item">
+                                <Link class="nav-link active" aria-current="page" to="lifecyclexample">Lifecycle Example</Link>
+                            </li>
 
                         </ul>
                     </div>

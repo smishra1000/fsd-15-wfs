@@ -18,6 +18,8 @@ import Contactus from "./Pages/Contactus"
 import NavBar from "./Pages/NavBar";
 import Courses from "./Pages/Courses";
 import Counter from "./Pages/Counter";
+import LifecycleDemo from "./Pages/LifecycleDemo";
+import Lifecycle1 from "./Pages/Lifecyle1";
 
 
 function App() {
@@ -63,6 +65,8 @@ function App() {
         <Route path="contactus" element={<Contactus/>}></Route>
         <Route path="courses" element={<Courses/>}></Route>
         <Route path="counterexample" element={<Counter/>}></Route>
+        <Route path="lifecycle" element={<LifecycleDemo/>}></Route>
+        <Route path="lifecyclexample" element={<Lifecycle1/>}></Route>
       </Routes>
       </BrowserRouter>
     </div>
