@@ -20,6 +20,8 @@ import Courses from "./Pages/Courses";
 import Counter from "./Pages/Counter";
 import LifecycleDemo from "./Pages/LifecycleDemo";
 import Lifecycle1 from "./Pages/Lifecyle1";
+import EmployeeSearch from "./Pages/EmployeeSearch";
+import PropsDrilling from "./Pages/PropsDrilling";
 
 
 function App() {
@@ -67,6 +69,8 @@ function App() {
         <Route path="counterexample" element={<Counter/>}></Route>
         <Route path="lifecycle" element={<LifecycleDemo/>}></Route>
         <Route path="lifecyclexample" element={<Lifecycle1/>}></Route>
+        <Route path="employeesearch" element={<EmployeeSearch/>}></Route>
+        <Route path="propsdrilling" element={<PropsDrilling/>}></Route>
       </Routes>
       </BrowserRouter>
     </div>
