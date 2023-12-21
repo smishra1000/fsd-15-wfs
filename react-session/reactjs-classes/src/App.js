@@ -1,6 +1,6 @@
 import Employee from "./Employee";
 import Footer from "./Footer";
-import Greet from "./Greet";
+// import Greet from "./Greet";
 import Header from "./Header";
 import MyResume from "./MyResume";
 import ParentAge from "./ParentAge";
@@ -22,6 +22,9 @@ import LifecycleDemo from "./Pages/LifecycleDemo";
 import Lifecycle1 from "./Pages/Lifecyle1";
 import EmployeeSearch from "./Pages/EmployeeSearch";
 import PropsDrilling from "./Pages/PropsDrilling";
+import EventHandlingInClass from "./Pages/EventHandlingInClass";
+import Job from "./Pages/Job";
+import Greet from "./Pages/Greet";
 
 
 function App() {
@@ -61,7 +64,7 @@ function App() {
       </li>
     </ul> */}
     <NavBar/>
-      <Routes>
+      {/* <Routes>
         <Route path="home" element={<Home/>}></Route>
         <Route path="aboutus" element={<Aboutus/>}></Route>
         <Route path="contactus" element={<Contactus/>}></Route>
@@ -71,7 +74,12 @@ function App() {
         <Route path="lifecyclexample" element={<Lifecycle1/>}></Route>
         <Route path="employeesearch" element={<EmployeeSearch/>}></Route>
         <Route path="propsdrilling" element={<PropsDrilling/>}></Route>
-      </Routes>
+        <Route path="eventhandling" element={<EventHandlingInClass/>}></Route>
+        <Route path="job" element={<Job/>}></Route>
+        
+      </Routes> */}
+      <Greet name="sameer"/>
+
       </BrowserRouter>
     </div>
   );
