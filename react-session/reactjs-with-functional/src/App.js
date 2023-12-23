@@ -6,6 +6,9 @@ import Counter from './Counter';
 import Employee from './Employee';
 import EmployeeWithClass from './EmployeeWithClass';
 import Course from './Course';
+import MyInput from './MyInput';
+import Sum from './Sum';
+import ParentIncome from './ParentIncome';
 
 function App() {
   return (
@@ -15,7 +18,12 @@ function App() {
       {/* <Counter/> */}
       {/* <Employee/>
       <EmployeeWithClass/> */}
-      <Course/>
+      {/* <Course/> */}
+      {/* <MyInput value="sameer mishra" placeholder="enter name"/>
+      <MyInput value="test!@gmail.com" placeholder="enter email"/>
+      <MyInput value="20" placeholder="enter age"/> */}
+      {/* <Sum/> */}
+      <ParentIncome/>
     </div>
   );
 }
