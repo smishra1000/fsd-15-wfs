@@ -9,6 +9,10 @@ import Course from './Course';
 import MyInput from './MyInput';
 import Sum from './Sum';
 import ParentIncome from './ParentIncome';
+import { Routes, Route, Link, BrowserRouter } from "react-router-dom"
+import NavBar from './Components/NavBar';
+import Home from "./Components/Home"
+import AllHooks from './Components/AllHooks/AllHooks';
 
 function App() {
   return (
@@ -23,7 +27,16 @@ function App() {
       <MyInput value="test!@gmail.com" placeholder="enter email"/>
       <MyInput value="20" placeholder="enter age"/> */}
       {/* <Sum/> */}
-      <ParentIncome/>
+      {/* <ParentIncome/> */}
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/home" element={<Home />}></Route>
+          <Route path="/allhook" element={<AllHooks />}></Route>
+          <Route path="/" element={<Home />}></Route>
+        </Routes>
+      </BrowserRouter>
+
     </div>
   );
 }
