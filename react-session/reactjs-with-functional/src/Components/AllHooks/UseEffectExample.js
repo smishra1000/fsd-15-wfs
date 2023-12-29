@@ -21,6 +21,8 @@ function UseEffectExample(){
         }).then(function(result){
             setUsers(result)
         })
+        // let age = prompt("enter age")
+        // setAge(age)
     },[])
 
     useEffect(()=>{
