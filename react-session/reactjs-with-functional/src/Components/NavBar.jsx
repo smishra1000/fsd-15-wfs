@@ -18,6 +18,9 @@ function NavBar() {
                         <li class="nav-item">
                             <Link class="nav-link active" aria-current="page" to="allhook">All Hook Demo</Link>
                         </li>
+                        <li class="nav-item">
+                            <Link class="nav-link active" aria-current="page" to="userscrud">Users Crud</Link>
+                        </li>
                         
 
                     </ul>

@@ -1,5 +1,7 @@
+
 import UseEffectExample from "./UseEffectExample"
 import UseEffectHookDemo from "./UseEffectHookDemo"
+import UseReducerHookDemo from "./UseReducerHookDemo"
 import UseStateHookDemo from "./UseStateHookDemo"
 
 function AllHooks() {
@@ -10,8 +12,12 @@ function AllHooks() {
             <UseStateHookDemo/> */}
             {/* <h3 style={{color:'green'}}>2. -------------------------------useEffect hook</h3>
             <UseEffectHookDemo/> */}
-            <UseEffectExample/>
+            {/* <UseEffectExample/> */}
 
+            {/* <UseEffectHookDemo/> */}
+            {/* <h3 style={{color:'blue'}}>3. -------------------------------useReducer hook</h3>
+            <UseReducerHookDemo/> */}
+            
         </div>
     )
 

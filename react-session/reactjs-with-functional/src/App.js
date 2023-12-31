@@ -13,6 +13,7 @@ import { Routes, Route, Link, BrowserRouter } from "react-router-dom"
 import NavBar from './Components/NavBar';
 import Home from "./Components/Home"
 import AllHooks from './Components/AllHooks/AllHooks';
+import UsersCrud from './Components/AllHooks/UsersCrud';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Routes>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/allhook" element={<AllHooks />}></Route>
+          <Route path="/userscrud" element={<UsersCrud />}></Route>
           <Route path="/" element={<Home />}></Route>
         </Routes>
       </BrowserRouter>

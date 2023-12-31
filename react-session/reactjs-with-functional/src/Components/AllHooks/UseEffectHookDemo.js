@@ -7,6 +7,10 @@ function UseEffectHookDemo(){
 
     useEffect(()=>{
         console.log("i am first type of useEffect calling in each render ")
+        return ()=>{
+            // 
+            console.log("hii i am first version of efect")
+        }
     })
 
     // 2 type will called in very first render 
@@ -17,6 +21,10 @@ function UseEffectHookDemo(){
     // 3 type will called in whenever deps array value change 
     useEffect(()=>{
         console.log("i am 3rd type of useEffect calling in deps array change")
+        return ()=>{
+            // 
+            console.log("hii i am clearing")
+        }
     },[age,count])
 
     return(
