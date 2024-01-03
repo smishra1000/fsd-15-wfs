@@ -14,6 +14,7 @@ import NavBar from './Components/NavBar';
 import Home from "./Components/Home"
 import AllHooks from './Components/AllHooks/AllHooks';
 import UsersCrud from './Components/AllHooks/UsersCrud';
+import UserCreateForm from './Components/AllHooks/UserCreateForm';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="/home" element={<Home />}></Route>
           <Route path="/allhook" element={<AllHooks />}></Route>
           <Route path="/userscrud" element={<UsersCrud />}></Route>
+          <Route path="/createuser" element={<UserCreateForm />}></Route>
           <Route path="/" element={<Home />}></Route>
         </Routes>
       </BrowserRouter>

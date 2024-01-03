@@ -1,18 +1,28 @@
 import { useState, useEffect } from "react"
 import { usersData } from "./UsersData"
+import UserCreateForm from "./UserCreateForm"
 function UsersCrud() {
-    const [users, setUsers] = useState(usersData)
-    const [filteredUsers,setFilteredUsers] = useState(usersData)
+    const [users, setUsers] = useState([])
+    const [filteredUsers,setFilteredUsers] = useState([])
     const [searchkey,setSearchKey] = useState("")
 
     const onhandleSearch = (e)=>{
         setSearchKey(e.target.value)
     }
+    const getUsersFromLocal = async ()=>{
+        let usersData = await localStorage.getItem("users")
+        setFilteredUsers(JSON.parse(usersData))
+        setUsers(JSON.parse(usersData))
+    }
+
+    useEffect(()=>{
+       getUsersFromLocal()
+    },[])
     const searchUsers = ()=>{
         console.log("calling serch function")
         // need to write logic to filter user based on typed value on search box
         if(searchkey===""){
-            setFilteredUsers(usersData)
+            setFilteredUsers([])
         }else{
             let result = users.filter((item)=>{
                 return item.name.toLowerCase().includes(searchkey.toLowerCase()) || item.email.toLowerCase().includes(searchkey.toLowerCase())
@@ -53,7 +63,6 @@ function UsersCrud() {
                     <button class="btn btn-outline-success" type="submit" onClick={()=>searchUsers()}>Search</button>
                     
                 </div>
-
 
             </div>
             <div className="row my-4">
