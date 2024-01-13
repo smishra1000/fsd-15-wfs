@@ -4,6 +4,9 @@
 // 2>we can delete contact 
 // 3>we can edit contact
 // 4>we can serach contact by alphabates
+//5----assignment---create group and show groups functionality
+//6-----add contact to specific group
+//7--make any contact fav
 
 import { useState } from "react"
 function ContactList() {
