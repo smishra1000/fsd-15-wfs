@@ -24,6 +24,9 @@ function NavBar() {
                         <li class="nav-item">
                             <Link class="nav-link active" aria-current="page" to="createuser">create user</Link>
                         </li>
+                        <li class="nav-item">
+                            <Link class="nav-link active" aria-current="page" to="contactlist">ContactList</Link>
+                        </li>
                         
 
                     </ul>
