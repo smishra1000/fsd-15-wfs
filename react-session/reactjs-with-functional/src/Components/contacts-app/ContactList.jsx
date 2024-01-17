@@ -9,49 +9,76 @@
 //7--make any contact fav
 
 import { useState } from "react"
+import GroupModal from "./GroupModal"
 function ContactList() {
     const [contacts, setContacts] = useState([])
+    const [filteredContacts, setFilteredContacts] = useState([])
     const [contact, setContact] = useState({ name: "", email: "", phone: "", address: "" })
-    const [isEdit,setIsEdit] = useState(false)
-    const [selectedPhone,setSelectedPhone] = useState(null)
+    const [isEdit, setIsEdit] = useState(false)
+    const [selectedPhone, setSelectedPhone] = useState(null)
+    const [searchQuery, setSearchQuery] = useState("")
+    const [isModelOpen,setIsModelOpen] = useState(false)
+    const [groupList,setGroupList] = useState([])
     const onFiledChange = (e, field) => {
         setContact({ ...contact, [field]: e.target.value })
     }
 
     const createContact = () => {
         setContacts([...contacts, contact])
+        setFilteredContacts([...contacts, contact])
         setContact({ ...contact, name: "", email: "", phone: "", address: "" })
     }
-    const deleteContact = (phone)=>{
+    const deleteContact = (phone) => {
         const updatedContacts = [...contacts];
-        const index = updatedContacts.findIndex((item)=>{
-            return item.phone===phone
+        const index = updatedContacts.findIndex((item) => {
+            return item.phone === phone
         })
         updatedContacts.splice(index, 1);
-        setContacts(updatedContacts);
+        setFilteredContacts(updatedContacts)
     }
-    const editContact = (phone)=>{
+    const editContact = (phone) => {
         setIsEdit(true)
         const updatedContacts = [...contacts];
-        const index = updatedContacts.findIndex((item)=>{
-            return item.phone===phone
+        const index = updatedContacts.findIndex((item) => {
+            return item.phone === phone
         })
-        setContact({...contact,...updatedContacts[index]})
+        setContact({ ...contact, ...updatedContacts[index] })
         setSelectedPhone(phone)
     }
 
-    const updateContact = ()=>{
+    const updateContact = () => {
         const updatedContacts = [...contacts];
-        const index = updatedContacts.findIndex((item)=>{
-            return item.phone===selectedPhone
+        const index = updatedContacts.findIndex((item) => {
+            return item.phone === selectedPhone
         })
-        updatedContacts[index].name=contact.name
-        updatedContacts[index].phone=contact.phone
-        updatedContacts[index].address=contact.address
-        updatedContacts[index].email=contact.email
-         setContacts(updatedContacts)
+        updatedContacts[index].name = contact.name
+        updatedContacts[index].phone = contact.phone
+        updatedContacts[index].address = contact.address
+        updatedContacts[index].email = contact.email
+        setFilteredContacts(updatedContacts)
         setContact({ ...contact, name: "", email: "", phone: "", address: "" })
         setIsEdit(false)
+    }
+    const onSearchChange = (e) => {
+        setSearchQuery(e.target.value)
+        if (e.target.value) {
+            let foundContacts = contacts.filter((contact) => {
+                return contact.phone.includes(e.target.value)
+            })
+            setFilteredContacts(foundContacts)
+        } else {
+            setFilteredContacts(contacts)
+        }
+
+    }
+    const openGroupModal = ()=>{
+        console.log("modal opening")
+        setIsModelOpen(!isModelOpen)
+    }
+    const createGroupList = (data)=>{
+        console.log(data)
+        setGroupList([...groupList,data])
+        setIsModelOpen(!isModelOpen)
     }
     return (
         <div className="container">
@@ -77,13 +104,28 @@ function ContactList() {
             </div>
             <div className="row mt-4">
                 <div className="col-md-3">
-                    {!isEdit &&<button className="btn btn-primary" onClick={() => createContact()}>Create Contact</button>}
+                    {!isEdit && <button className="btn btn-primary" onClick={() => createContact()}>Create Contact</button>}
                     {isEdit && <button className="btn btn-primary" onClick={() => updateContact()}>Upxdate Contact</button>}
+                </div>
+                <div className="col-md-6">
+                    <input class="form-control" type="text" value={searchQuery} placeholder="search contacts by name phone email" onChange={(e) => onSearchChange(e)} />
+                </div>
+                <div className="col-md-3">
+                   <button className="btn btn-warning" onClick={()=>openGroupModal()}>+Create Group</button>
                 </div>
             </div>
             <div className="row mt-4">
+                {/* <div className="col-md-12">
+                    <button type="button" class="btn btn-primary ml-3">Phone</button>
+                    <button type="button" class="btn btn-secondary ml-3">Email</button>
+                    <button type="button" class="btn btn-success ml-3 ">Address</button>
+                    <button type="button" class="btn btn-danger ml-3">Name</button>
+                </div> */}
+
+            </div>
+            <div className="row mt-4">
                 <div class="list-group">
-                    {contacts.map((item) => {
+                    {filteredContacts.map((item) => {
                         return (
                             <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
@@ -93,8 +135,8 @@ function ContactList() {
                                 <p class="mb-1">phone: {item.phone}</p>
                                 <small>Address:{item.address}</small>
                                 <div class="d-flex w-100 justify-content-between">
-                                    <button className="btn btn-info" onClick={()=>editContact(item.phone)}>edit</button>
-                                    <button className="btn btn-danger" onClick={()=>deleteContact(item.phone)}>delete</button>
+                                    <button className="btn btn-info" onClick={() => editContact(item.phone)}>edit</button>
+                                    <button className="btn btn-danger" onClick={() => deleteContact(item.phone)}>delete</button>
                                 </div>
                             </a>
                         )
@@ -102,6 +144,14 @@ function ContactList() {
 
                 </div>
             </div>
+            {isModelOpen && <GroupModal onClose={()=>setIsModelOpen(false)} createGroup={createGroupList}/>}
+            <ul>
+                {groupList.map((group)=>{
+                    return(
+                        <li>{group}</li>
+                    )
+                })}
+            </ul>
         </div>
     )
 }
