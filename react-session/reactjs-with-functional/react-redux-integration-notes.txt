@@ -1,0 +1,48 @@
+steps for react redux integration
+
+1>install redux and react-redux 
+    npm install redux react-redux
+
+2> create the reducers and and rootreducer
+        rootReducer is combination of multiple reducers 
+        exmaple-- reducers/CounterReducer.js 
+//         const initialState = {
+//     count:0
+// }
+
+// function CounterReducer(state=initialState,action){
+//     if(action.type==="increment"){
+//         return {
+//             count:state.count+1
+//         }
+//     }else{
+//         return state;
+//     }
+// }
+
+// export default CounterReducer
+
+3> create rootReducer.js  file inside reducers folder  and below code
+// import {combineReducers} from "redux"
+
+// import CounterReducer from "./CounterReducer"
+
+// const rootReducer = combineReducers({counter:CounterReducer})
+
+// export default rootReducer
+
+4> integrate rootReducer and create store inside index .js
+
+// redux integration code here
+
+import {Provider} from "react-redux"
+import { createStore } from 'redux';
+import rootReducer from './reducers/rootReducer';
+
+const store = createStore(rootReducer)
+// end of react redux integration
+5>wrap the <App/> inside <Provider store={store}> plce App component </Provider>
+    add below code
+{/* <Provider store={store}>
+<App/>
+</Provider> */}

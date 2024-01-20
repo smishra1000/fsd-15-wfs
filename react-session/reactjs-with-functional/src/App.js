@@ -16,6 +16,8 @@ import AllHooks from './Components/AllHooks/AllHooks';
 import UsersCrud from './Components/AllHooks/UsersCrud';
 import UserCreateForm from './Components/AllHooks/UserCreateForm';
 import ContactList from './Components/contacts-app/ContactList';
+import CounterUsingRedux from './Components/CounterUsingRedux';
+import ContactsUsingRedux from './Components/ContactsUsingRedux';
 
 function App() {
   return (
@@ -39,6 +41,8 @@ function App() {
           <Route path="/userscrud" element={<UsersCrud />}></Route>
           <Route path="/createuser" element={<UserCreateForm />}></Route>
           <Route path="/contactlist" element={<ContactList />}></Route>
+          <Route path="/counterusingredux" element={<CounterUsingRedux />}></Route>
+          <Route path="/contactsusingredux" element={<ContactsUsingRedux />}></Route>
           <Route path="/" element={<Home />}></Route>
         </Routes>
       </BrowserRouter>

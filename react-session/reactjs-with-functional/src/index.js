@@ -8,8 +8,21 @@ import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/js/bootstrap.bundle.js"
 import "bootstrap/dist/css/bootstrap.min.css"
 
+// redux integration code here
+
+import {Provider} from "react-redux"
+import { createStore } from 'redux';
+import rootReducer from './reducers/rootReducer';
+
+const store = createStore(rootReducer)
+// end of react redux integration
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App/>
+root.render(
+    <Provider store={store}>
+        <App/>
+    </Provider>
+
 );
 
 // If you want to start measuring performance in your app, pass a function
