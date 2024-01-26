@@ -33,6 +33,9 @@ function NavBar() {
                         <li class="nav-item">
                             <Link class="nav-link active" aria-current="page" to="contactsusingredux">ConatctsUsingRedux</Link>
                         </li>
+                        <li class="nav-item">
+                            <Link class="nav-link active" aria-current="page" to="usersreactnode">UsersReactNode</Link>
+                        </li>
                         
 
                     </ul>
