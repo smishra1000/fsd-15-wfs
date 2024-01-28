@@ -6,12 +6,21 @@ function UsersReactNode() {
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:7000/users").then(function (res) {
+        fetch("http://localhost:7000/users/all").then(function (res) {
             return res.json()
         }).then(function (result) {
             setUsers(result)
         })
     }, [])
+
+    const deleteUser = (e,item)=>{
+        debugger;
+        fetch(`http://localhost:7000/users/${item.id}`,{method:'DELETE'}).then(function (res) {
+            return res.json()
+        }).then(function (result) {
+            setUsers(result)
+        })
+    }
     return (
         <div className="container">
             <div className="row">
@@ -32,6 +41,7 @@ function UsersReactNode() {
                             <td>{item.name}</td>
                             <td>{item.age}</td>
                             <td>{item.email}</td>
+                            <td><button className="btn btn-danger" onClick={(e)=>deleteUser(e,item)}>delete</button></td>
                             </tr>)
                         })}
                     </tbody>
