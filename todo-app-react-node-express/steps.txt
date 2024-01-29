@@ -1,0 +1,25 @@
+Backend setup 
+1> create backend/anyname folder
+2>enter npm init command 
+3>npm install express cors nodemon 
+4>inside package .json add start script 
+    "start" : "nodemon server.js" 
+5>create server.js file
+    add below code 
+    const express = require("express");
+    const app = express();
+
+    app.listen(7000,()=>{
+        console.log("server is running at 70000")
+    })
+
+
+
+
+
+Frontend Setup
+
+it should be inside your main root folder like todo-node-react-app
+1> npx create-react-app app_name or frontend
+wait for 2-3 sec to create react app
+2>npm start
