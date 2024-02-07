@@ -23,3 +23,27 @@ it should be inside your main root folder like todo-node-react-app
 1> npx create-react-app app_name or frontend
 wait for 2-3 sec to create react app
 2>npm start
+
+
+
+
+MONGODB INSTALLATION STEPS
+1>https://www.mongodb.com/try/download/community
+2>SELECT OS AND MSI CLICK download--
+3>after downlaod please double click downloaded msi file ---file, folow the instruction till finsih button
+4>once mondb installaition done please go to mongosh install
+5>downlaod mongosh zip file 
+6> click on downloaded zip and extract it 
+7> doucble clik on extracted mongosh--bin---mongosh.express
+8>it will ask you to prompt enter for localhost:127.0.0 
+
+all mongodb command -------------------------------------------
+1> show dbs; list all database available in your system 
+2>use db_name--it will selct existing db with given name or else it will create new db with given name
+3> show collections;---lsit all collections available inside this db
+4>db.createCollection("users")
+5>db.users.insert({id:1,name:"test1",age:30})
+    db.insertMany([{id:2,name:"test2",age:33},{id:3,name:"test3",age:34}])
+
+6>db.users.find({})--return all record from users collection 
+7>db.users.find({name:"test1"}) --return those users which name has test1

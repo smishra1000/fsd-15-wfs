@@ -3,6 +3,11 @@ var bodyParser = require('body-parser')
 const app = express();
 const cors = require("cors");
 
+const mongoose = require("mongoose")
+
+
+mongoose.connect("mongodb://localhost:27017/fsd-15-demo")
+
 const todoRoutes =require("./routes/todo")
 
 app.use(cors())

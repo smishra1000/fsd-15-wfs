@@ -1,13 +1,12 @@
 const express = require("express");
 
+const ToDoModel = require("../models/todo")
+
 const router = express.Router()
 
 
-const todos = [
-
-]
-
-router.get("/list", function (req, res) {
+router.get("/list", async function (req, res) {
+    let todos = await ToDoModel.find({});
     res.send(todos)
 })
 
