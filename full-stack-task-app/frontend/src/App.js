@@ -4,17 +4,22 @@ import TaskList from './pages/TaskList';
 import {BrowserRouter,Routes,Route,Link} from "react-router-dom";
 import NavBar from './pages/NavBar';
 import CreateTask from './pages/CreateTask';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Dashboard from './pages/Dashboard';
 
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <NavBar/>
       <Routes>
+      <Route path="login" element={<Login/>}></Route>
+        <Route path="signup" element={<Signup/>}></Route>
         <Route path="tasks" element={<TaskList/>}></Route>
         <Route path="create-task" element={<CreateTask/>}></Route>
-        <Route path="/" element={<TaskList/>}></Route>
+        <Route path="dashboard" element={<Dashboard/>}></Route>
+        <Route path="/" element={<Dashboard/>}></Route>
       </Routes>
       </BrowserRouter>
     </div>
