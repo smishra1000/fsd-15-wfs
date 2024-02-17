@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom"
 
 function Signup() {
     const [userAuth,setUserAuth] = useState({email:"",fullName:"",password:"",rePassword:""})
+    const [errors,setErrors] = useState({})
     const [isError,setIsError] = useState(false)
     const [errMessage,setErrMessage] = useState("")
     const navigate = useNavigate()
@@ -16,9 +17,24 @@ function Signup() {
             }
         })
     }
-    const register = (e)=>{
-        e.preventDefault();
-        console.log(userAuth)
+
+    const validateFormFields = ()=>{
+        let errors = {}
+        if(!userAuth.fullName){
+            errors.fullName="Please enter full name"
+        }if(!userAuth.email){
+            errors.email="Please enter email" 
+        }if(!userAuth.password){
+            errors.password="Please enter password"
+        }if(!userAuth.rePassword){
+            errors.rePassword="Please enter confirm password"
+        }else if(userAuth.password!=userAuth.rePassword){
+            errors.rePassword="password confirm pasword does'nt match"
+        }
+        return errors
+    }
+
+    const signup = ()=>{
         fetch("http://localhost:7000/auth/signup",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(userAuth)}).then((res)=>{
             return res.json()
         }).then((result)=>{
@@ -29,6 +45,18 @@ function Signup() {
                 setErrMessage(result.message)
             }
         })
+    }
+    const register = (e)=>{
+        e.preventDefault();
+        let errors = validateFormFields()
+        setErrors(errors)
+        if(Object.keys(errors).length===0){
+            // no error plase call to backedn
+            signup();
+        }else{
+            return;
+        }
+        
     }
     return (
         <div className="d-flex justify-content-center align-items-center" style={{minHeight:'100vh'}}>
@@ -41,18 +69,22 @@ function Signup() {
                                 <label  className="form-label">Name</label>
                                 <input type="text" className="form-control" value={userAuth.fullName} onChange={onFieldChange} name="fullName"/>
                             </div>
+                            <p className="error-text">{errors?.fullName}</p>
                             <div className="mb-3">
                                 <label  className="form-label">Email</label>
                                 <input type="text" className="form-control" value={userAuth.email} onChange={onFieldChange} name="email"/>
                             </div>
+                            <p  className="error-text">{errors?.email}</p>
                             <div className="mb-3">
                                 <label  className="form-label">Password</label>
                                 <input type="password" className="form-control" value={userAuth.password} onChange={onFieldChange} name="password"/>
                             </div>
+                            <p  className="error-text">{errors?.password}</p>
                             <div className="mb-3">
                                 <label  className="form-label">Re-enter password</label>
                                 <input type="password" className="form-control" value={userAuth.rePassword} onChange={onFieldChange} name="rePassword"/>
                             </div>
+                            <p  className="error-text">{errors?.rePassword}</p>
                             <input type="submit" className="btn btn-primary w-100" value="Signup" style={{background:'#009688',border:'1px solid #009688'}}/>
                             {isError && <div className="mb-3">
                                 <h4 style={{color:"red"}}>{errMessage}</h4>

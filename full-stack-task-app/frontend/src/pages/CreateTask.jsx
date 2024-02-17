@@ -4,6 +4,7 @@ function CreateTask() {
     const [taskName, setTaskName] = useState("")
     const [taskDesc, setTaskDesc] = useState("")
     const [showAlert,setShowAlert] = useState(false)
+    const [errors,setErrors] = useState({})
 
     const navigate = useNavigate()
 
@@ -13,16 +14,34 @@ function CreateTask() {
     const onTaskNameChange = (e) => {
         setTaskName(e.target.value)
     }
+
+    const validateTaskField = ()=>{
+        let errors = {};
+        if(!taskName){
+            errors.taskName="Please enter task name"
+        } if(!taskDesc){
+            errors.taskDesc="Please enter task description"
+        }
+
+        return errors
+    }
     const createTask = (taskData) => {
-        fetch("http://localhost:7000/task/create", { method: "POST", headers: { 'Content-Type': "application/json" }, body: JSON.stringify(taskData) }).then(function (res) {
-            return res.json()
-        }).then(function (result) {
-            if(result._id){
-                setShowAlert(true)
-            }
-            console.log("data saved successfully")
-            navigate("/tasks")
-        })
+        let errors = validateTaskField()
+        setErrors(errors)
+        if(Object.keys(errors).length===0){
+            fetch("http://localhost:7000/task/create", { method: "POST", headers: { 'Content-Type': "application/json" }, body: JSON.stringify(taskData) }).then(function (res) {
+                return res.json()
+            }).then(function (result) {
+                if(result._id){
+                    setShowAlert(true)
+                }
+                console.log("data saved successfully")
+                navigate("/tasks")
+            })
+        }else{
+            return;
+        }
+       
     }
     const saveTask = (e) => {
         e.preventDefault();
@@ -46,10 +65,12 @@ function CreateTask() {
                             <label>Task Name</label>
                             <input type="text" class="form-control" value={taskName} onChange={onTaskNameChange} />
                         </div>
+                        <p  className="error-text">{errors?.taskName}</p>
                         <div class="form-group" style={{ padding: '15px' }}>
                             <label>Task Description</label>
                             <input type="text" class="form-control" value={taskDesc} onChange={onTaskDescChange} />
                         </div>
+                        <p  className="error-text">{errors?.taskDesc}</p>
                         <div style={{ padding: '15px' }}>
                             <button type="submit" class="btn btn-primary" >Submit</button>
                         </div>
