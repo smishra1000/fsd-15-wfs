@@ -1,4 +1,5 @@
 const express = require("express");
+const jwt = require("jsonwebtoken")
 const AuthModel = require("../models/auth")
 
 const router = express.Router();
@@ -28,7 +29,9 @@ router.post("/login",async function(req,res){
    let isUserExist = await AuthModel.findOne({email:email})
     if(isUserExist){
         if(password===isUserExist.password){
-            return res.send({message:"User Logged in Successfully",success:true})
+            // token generation line and pass to client
+            let token = jwt.sign({email:isUserExist.email,_id:isUserExist._id},"testkey")
+            return res.send({message:"User Logged in Successfully",success:true,token:token})
         }else{
             return res.send({message:"Invalid credentials",success:false})
         }

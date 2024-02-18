@@ -10,7 +10,25 @@ const app = express();
 app.use(express.json())
 app.use(cors())
 
-app.use("/task",taskRoutes);
+
+// function checkToken(req,res,next){
+//     let token = req.headers.authorization
+//     if(!token){
+//         res.send("you are not allowed to get task list")
+//     }else{
+//         next()
+//     }
+// }
+
+function checkPaidOrNot(req,res,next){
+    let userPaid = true
+    if(!userPaid){
+        res.send("you didnt pay the amount so cant watch movies")
+    }else{
+        next()
+    }
+}
+app.use("/task",checkPaidOrNot,taskRoutes);
 app.use("/auth",authRoutes);
 
 app.get("/",function(req,res){
