@@ -1,9 +1,10 @@
 const express = require("express");
 const TaskModel = require("../models/task")
 const router = express.Router();
+const mongoose = require("mongoose")
 
 router.get("/all",async function(req,res){
-    let tasks =  await TaskModel.find({})
+    let tasks =  await TaskModel.find({status:{ "$ne":"completed"}})
     // res.status(200).json(tasks)
     res.send(tasks)
 })
@@ -29,5 +30,12 @@ router.delete("/:id",async function(req,res){
     let task = await TaskModel.findById(id)
     res.send(task)
  })
+
+ router.put("/update/:id",async function(req,res){
+    console.log(req.params)
+    const {id} = req.params;
+    const updatedTask = await TaskModel.updateOne({_id:new mongoose.Types.ObjectId(id)},{...req.body})
+    res.send(updatedTask)
+})
 
 module.exports = router
