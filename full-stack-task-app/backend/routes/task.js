@@ -37,5 +37,24 @@ router.delete("/:id",async function(req,res){
     const updatedTask = await TaskModel.updateOne({_id:new mongoose.Types.ObjectId(id)},{...req.body})
     res.send(updatedTask)
 })
+router.get("/byStatus/:status",async function(req,res){
+    const {status} = req.params;
+    if(status==="All"){
+        let tasks = await TaskModel.find({})
+       return res.send(tasks)
+    }else{
+        let tasks = await TaskModel.find({status:status})
+        return res.send(tasks)
+    }
+    
+ })
+ router.get("/summary",async function(req,res){
+    let TotalCount = await TaskModel.find({}).count();
+    let InProgressCount = await TaskModel.find({status:{ "$eq":"Inprogress"}}).count()
+    let CompletedCount = await  TaskModel.find({status:{ "$eq":"complted"}}).count()
+    let NotStartedCount = await  TaskModel.find({status:{ "$eq":"not_started"}}).count()
+    res.send({TotalCount,InProgressCount,CompletedCount,NotStartedCount})
+    
+ })
 
 module.exports = router
