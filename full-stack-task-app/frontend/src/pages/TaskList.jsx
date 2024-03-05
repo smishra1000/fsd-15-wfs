@@ -8,18 +8,32 @@ function TaskList() {
     const [taskSummary,setTaskSummary] = useState({TotalCount:0,InProgressCount:0,CompletedCount:0,NotStartedCount:0})
 
     const getAllTasks = () => {
-        fetch("http://localhost:7000/task/all").then((res) => {
+        fetch("http://localhost:7000/task/all/").then((res) => {
             return res.json();
         }).then((result) => {
             setTasks(result)
             setFilteredTasks(result)
         })
     }
+    const getTaskSummary = ()=>{
+        fetch(`http://localhost:7000/task/summary`).then((res) =>{
+            return res.json();
+        }).then((result) => {
+            console.log(result)
+           setTaskSummary(result)
+        })
+    }
     useEffect(() => {
-       
-        getAllTasks();
-        getTaskSummary();
-    }, [])
+        const fetchData = async () => {
+            try {
+                await getAllTasks();
+                await getTaskSummary();
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+        fetchData();
+    }, []);
 
     const deleteTask = (e, id) => {
         fetch("http://localhost:7000/task/" + id, { method: "DELETE" }).then((res) => {
@@ -66,14 +80,7 @@ function TaskList() {
         console.log(e.target.value)
         getTasksByStatus(e.target.value)
     }
-    const getTaskSummary = ()=>{
-        fetch("http://localhost:7000/task/summary").then((res) => {
-            return res.json();
-        }).then((result) => {
-            console.log(result)
-            setTaskSummary(result)
-        })
-    }
+   
     return (
         <div className="container">
             <div className="row mt-3">

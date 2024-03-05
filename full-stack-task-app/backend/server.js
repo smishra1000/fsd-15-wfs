@@ -28,7 +28,7 @@ function checkPaidOrNot(req,res,next){
         next()
     }
 }
-app.use("/task",checkPaidOrNot,taskRoutes);
+app.use("/task",taskRoutes);
 app.use("/auth",authRoutes);
 
 app.get("/",function(req,res){

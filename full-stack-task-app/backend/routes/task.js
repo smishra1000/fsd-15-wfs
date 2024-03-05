@@ -3,6 +3,14 @@ const TaskModel = require("../models/task")
 const router = express.Router();
 const mongoose = require("mongoose")
 
+ router.get("/summary",async function(req, res){
+    let TotalCount = await TaskModel.find({}).count();
+    let InProgressCount = await TaskModel.find({status: "Inprogress"}).count();
+    let CompletedCount = await TaskModel.find({status: "completed"}).count();
+    let NotStartedCount = await TaskModel.find({status: "not_started"}).count();
+    res.send({TotalCount, InProgressCount, CompletedCount, NotStartedCount});
+});
+
 router.get("/all",async function(req,res){
     let tasks =  await TaskModel.find({status:{ "$ne":"completed"}})
     // res.status(200).json(tasks)
@@ -48,13 +56,4 @@ router.get("/byStatus/:status",async function(req,res){
     }
     
  })
- router.get("/summary",async function(req,res){
-    let TotalCount = await TaskModel.find({}).count();
-    let InProgressCount = await TaskModel.find({status:{ "$eq":"Inprogress"}}).count()
-    let CompletedCount = await  TaskModel.find({status:{ "$eq":"complted"}}).count()
-    let NotStartedCount = await  TaskModel.find({status:{ "$eq":"not_started"}}).count()
-    res.send({TotalCount,InProgressCount,CompletedCount,NotStartedCount})
-    
- })
-
 module.exports = router
