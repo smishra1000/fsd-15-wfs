@@ -24,15 +24,17 @@ function TaskList() {
         })
     }
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                await getAllTasks();
-                await getTaskSummary();
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        };
-        fetchData();
+        // const fetchData = async () => {
+        //     try {
+        //         await getAllTasks();
+        //         await getTaskSummary();
+        //     } catch (error) {
+        //         console.error("Error fetching data:", error);
+        //     }
+        // };
+        // fetchData();
+        getAllTasks();
+        getTaskSummary();
     }, []);
 
     const deleteTask = (e, id) => {
@@ -146,7 +148,8 @@ function TaskList() {
                     return (
                         <div className="col-md-3 mt-3">
                             <div className="card task-card" style={{ boxShadow: 'rgba(0, 0, 0, 0.12) 0px 4px 16px' }}>
-                                <button style={{ position: 'absolute' }} className="btn btn-info btn-sm" onClick={(e) => startTask(e, task._id, task.status)}>{task.status === 'Inprogress' ? 'Complete' : 'Start'}</button>
+                            {task.status==='Inprogress' && <button style={{ position: 'absolute' }} className="btn btn-info btn-sm" onClick={(e) => startTask(e, task._id, task.status)}>{'Complete'}</button>}
+                                {task.status==='not_started' && <button style={{ position: 'absolute' }} className="btn btn-info btn-sm" onClick={(e) => startTask(e, task._id, task.status)}>{'Start'}</button>}
                                 <img className="card-img-top" src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Card image cap" />
                                 <div className="card-body">
                                     <h5 className="card-title">{task.taskName}</h5>

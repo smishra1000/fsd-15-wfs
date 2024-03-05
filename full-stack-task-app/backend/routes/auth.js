@@ -31,7 +31,7 @@ router.post("/login",async function(req,res){
         if(password===isUserExist.password){
             // token generation line and pass to client
             let token = jwt.sign({email:isUserExist.email,_id:isUserExist._id},"testkey")
-            return res.send({message:"User Logged in Successfully",success:true,token:token})
+            return res.send({message:"User Logged in Successfully",success:true,token:token,email:isUserExist.email})
         }else{
             return res.send({message:"Invalid credentials",success:false})
         }
@@ -39,6 +39,12 @@ router.post("/login",async function(req,res){
     }else{
         return res.send({message:"User Not Exist",success:false})
     }   
+})
+
+router.get("/profile/:email",async function(req,res){
+    let user = await AuthModel.findOne({email:req.params.email})
+    res.send(user)
+
 })
 
 

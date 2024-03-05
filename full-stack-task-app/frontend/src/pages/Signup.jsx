@@ -1,5 +1,5 @@
 import { useState } from "react"
-import {useNavigate} from "react-router-dom"
+import {useNavigate,Link} from "react-router-dom"
 
 function Signup() {
     const [userAuth,setUserAuth] = useState({email:"",fullName:"",password:"",rePassword:""})
@@ -83,6 +83,9 @@ function Signup() {
                             <div className="mb-3">
                                 <label  className="form-label">Re-enter password</label>
                                 <input type="password" className="form-control" value={userAuth.rePassword} onChange={onFieldChange} name="rePassword"/>
+                            </div>
+                            <div className="mb-3">
+                                <Link to="/login">Already has account please go to login</Link>
                             </div>
                             <p  className="error-text">{errors?.rePassword}</p>
                             <input type="submit" className="btn btn-primary w-100" value="Signup" style={{background:'#009688',border:'1px solid #009688'}}/>
