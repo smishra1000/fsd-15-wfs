@@ -47,5 +47,22 @@ router.get("/profile/:email",async function(req,res){
 
 })
 
+router.put("/changePassword", async function(req,res){
+    // first will check is that usr email present or not 
+    // if email found then update the password 
+    // else send user forund message
+
+    const {email,currentPassword,newPassword} = req.body;
+    let user = await AuthModel.findOne({email});
+    if(user){
+        user.password = newPassword;
+        let updateduser = await user.save();
+        res.send(updateduser)
+    }else{
+        res.send({message:"User Not Exist",success:false})
+    }
+
+})
+
 
 module.exports = router

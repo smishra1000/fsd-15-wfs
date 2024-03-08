@@ -31,7 +31,7 @@ function NavBar() {
                             </Link>
                             {isToggled && <div class="dropdown-menu" style={{ display: 'block' }}>
                                 <Link class="dropdown-item" to="profile">ProfileInfo</Link>
-                                <Link class="dropdown-item" href="#">Change Password</Link>
+                                <Link class="dropdown-item" to="change_password">Change Password</Link>
                                 <div class="dropdown-divider"></div>
                                 <Link class="dropdown-item" onClick={() => logout()}>Logout</Link>
                             </div>}
