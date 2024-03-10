@@ -36,7 +36,7 @@ function Login() {
                 return res.json()
             }).then((result)=>{
                 if(result.success){
-                    localStorage.setItem("loggedInUser",JSON.stringify({email:result.email}))
+                    localStorage.setItem("loggedInUser",JSON.stringify({email:result.email,userId:result.userId}))
                     localStorage.setItem("isLoggedIn",true)
                     navigate("/")
                     

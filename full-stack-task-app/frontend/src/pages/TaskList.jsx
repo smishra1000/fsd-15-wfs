@@ -5,7 +5,7 @@ function TaskList() {
     const [searchkey, setSearchKey] = useState("")
     const [filteredTasks, setFilteredTasks] = useState([])
     const [status, setStatus] = useState(["All", "Inprogress", "completed", "not_started"])
-    const [taskSummary,setTaskSummary] = useState({TotalCount:0,InProgressCount:0,CompletedCount:0,NotStartedCount:0})
+    const [taskSummary, setTaskSummary] = useState({ TotalCount: 0, InProgressCount: 0, CompletedCount: 0, NotStartedCount: 0 })
 
     const getAllTasks = () => {
         fetch("http://localhost:7000/task/all/").then((res) => {
@@ -15,12 +15,12 @@ function TaskList() {
             setFilteredTasks(result)
         })
     }
-    const getTaskSummary = ()=>{
-        fetch(`http://localhost:7000/task/summary`).then((res) =>{
+    const getTaskSummary = () => {
+        fetch(`http://localhost:7000/task/summary`).then((res) => {
             return res.json();
         }).then((result) => {
             console.log(result)
-           setTaskSummary(result)
+            setTaskSummary(result)
         })
     }
     useEffect(() => {
@@ -69,6 +69,25 @@ function TaskList() {
         })
     }
 
+    const assignTaskToUser = async (taskId, status)=>{
+        const user = await localStorage.getItem("loggedInUser") && JSON.parse(localStorage.getItem("loggedInUser"))
+        if (status === "Inprogress") {
+            status = "completed"
+        } else {
+            status = "Inprogress"
+        }
+
+        fetch("http://localhost:7000/user/task/assignTask", { method: "POST", headers: { "Content-type": 'Application/Json' }, body: JSON.stringify({ taskId:taskId,userId:user.userId,status: status }) }).then((res) => {
+            return res.json();
+        }).then((result) => {
+            getAllTasks();
+        })
+    }
+
+    const assignTask = async (e, taskId, status) => {
+       assignTaskToUser(taskId, status);
+    }
+
     const getTasksByStatus = (status) => {
         fetch("http://localhost:7000/task/byStatus/" + status).then((res) => {
             return res.json();
@@ -82,12 +101,12 @@ function TaskList() {
         console.log(e.target.value)
         getTasksByStatus(e.target.value)
     }
-   
+
     return (
         <div className="container">
             <div className="row mt-3">
                 <div className="col-md-3">
-                    <div className="card text-center mb-3 card-shadow" style={{borderBottom: '5px solid blue'}}>
+                    <div className="card text-center mb-3 card-shadow" style={{ borderBottom: '5px solid blue' }}>
                         <div className="card-body">
                             <h5 className="card-title">Total Tasks</h5>
                             <p className="card-text count-task">{taskSummary.TotalCount}</p>
@@ -95,16 +114,16 @@ function TaskList() {
                     </div>
                 </div>
                 <div className="col-md-3">
-                <div className="card text-center mb-3 card-shadow" style={{borderBottom: '5px solid red'}}>
+                    <div className="card text-center mb-3 card-shadow" style={{ borderBottom: '5px solid red' }}>
                         <div className="card-body">
                             <h5 className="card-title">Not Started Tasks</h5>
                             <p className="card-text count-task">{taskSummary.NotStartedCount}</p>
-    
+
                         </div>
                     </div>
                 </div>
                 <div className="col-md-3">
-                <div className="card text-center mb-3 card-shadow" style={{borderBottom: '5px solid orange'}}>
+                    <div className="card text-center mb-3 card-shadow" style={{ borderBottom: '5px solid orange' }}>
                         <div className="card-body">
                             <h5 className="card-title">In Progress Tasks</h5>
                             <p className="card-text count-task">{taskSummary.InProgressCount}</p>
@@ -112,7 +131,7 @@ function TaskList() {
                     </div>
                 </div>
                 <div className="col-md-3">
-                <div className="card text-center mb-3 card-shadow" style={{borderBottom: '5px solid green'}}>
+                    <div className="card text-center mb-3 card-shadow" style={{ borderBottom: '5px solid green' }}>
                         <div className="card-body">
                             <h5 className="card-title">Completed Tasks</h5>
                             <p className="card-text count-task">{taskSummary.CompletedCount}</p>
@@ -148,8 +167,8 @@ function TaskList() {
                     return (
                         <div className="col-md-3 mt-3">
                             <div className="card task-card" style={{ boxShadow: 'rgba(0, 0, 0, 0.12) 0px 4px 16px' }}>
-                            {task.status==='Inprogress' && <button style={{ position: 'absolute' }} className="btn btn-info btn-sm" onClick={(e) => startTask(e, task._id, task.status)}>{'Complete'}</button>}
-                                {task.status==='not_started' && <button style={{ position: 'absolute' }} className="btn btn-info btn-sm" onClick={(e) => startTask(e, task._id, task.status)}>{'Start'}</button>}
+                                {task.status === 'Inprogress' && <button style={{ position: 'absolute' }} className="btn btn-info btn-sm" onClick={(e) => startTask(e, task._id, task.status)}>{'Complete'}</button>}
+                                {task.status === 'not_started' && <button style={{ position: 'absolute' }} className="btn btn-info btn-sm" onClick={(e) => assignTask(e, task._id, task.status)}>{'Start'}</button>}
                                 <img className="card-img-top" src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Card image cap" />
                                 <div className="card-body">
                                     <h5 className="card-title">{task.taskName}</h5>

@@ -3,6 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const taskRoutes = require("./routes/task")
 const authRoutes = require("./routes/auth")
+const userTaskRoutes = require("./routes/userTask")
 
 mongoose.connect("mongodb://localhost:27017/task-app")
 
@@ -30,6 +31,7 @@ function checkPaidOrNot(req,res,next){
 }
 app.use("/task",taskRoutes);
 app.use("/auth",authRoutes);
+app.use("/user/task",userTaskRoutes)
 
 app.get("/",function(req,res){
     res.send("hello world")

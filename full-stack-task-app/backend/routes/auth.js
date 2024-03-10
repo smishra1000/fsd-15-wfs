@@ -31,7 +31,7 @@ router.post("/login",async function(req,res){
         if(password===isUserExist.password){
             // token generation line and pass to client
             let token = jwt.sign({email:isUserExist.email,_id:isUserExist._id},"testkey")
-            return res.send({message:"User Logged in Successfully",success:true,token:token,email:isUserExist.email})
+            return res.send({message:"User Logged in Successfully",success:true,token:token,email:isUserExist.email,userId:isUserExist._id})
         }else{
             return res.send({message:"Invalid credentials",success:false})
         }

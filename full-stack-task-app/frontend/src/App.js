@@ -10,6 +10,7 @@ import Dashboard from './pages/Dashboard';
 import PrivateRoutes from './pages/PrivateRoutes';
 import Profile from './pages/Profile';
 import ChangePassword from './pages/ChangePassword';
+import MyTask from './pages/MyTask';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route element={<PrivateRoutes/>}>
             <Route path="/" element={<Dashboard/>}>
             <Route path="/tasks" element={<TaskList/>}></Route>
+            <Route path="/mytask" element={<MyTask/>}></Route>
             <Route path="/create-task" element={<CreateTask/>}></Route>
             <Route path="/profile" element={<Profile/>}></Route>
             <Route path="/change_password" element={<ChangePassword/>}></Route>

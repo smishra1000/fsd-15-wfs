@@ -12,7 +12,7 @@ const mongoose = require("mongoose")
 });
 
 router.get("/all",async function(req,res){
-    let tasks =  await TaskModel.find({status:{ "$ne":"completed"}})
+    let tasks =  await TaskModel.find({assigned:{ "$ne":"true"}})
     // res.status(200).json(tasks)
     res.send(tasks)
 })
@@ -21,7 +21,7 @@ router.post("/create",async function(req,res){
     console.log(req.body)
     // from client if you pass data that comes as a req.body
     //const {taskName,taskDesc,status,assigned,id} = req.body
-    const newTaskData = new TaskModel({...req.body})
+    const newTaskData = new TaskModel({...req.body,assigned:false})
     const createdTask = await newTaskData.save();
     res.send(createdTask)
 })
