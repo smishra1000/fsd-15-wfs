@@ -11,6 +11,7 @@ import PrivateRoutes from './pages/PrivateRoutes';
 import Profile from './pages/Profile';
 import ChangePassword from './pages/ChangePassword';
 import MyTask from './pages/MyTask';
+import Users from './pages/Users';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/tasks" element={<TaskList/>}></Route>
             <Route path="/mytask" element={<MyTask/>}></Route>
             <Route path="/create-task" element={<CreateTask/>}></Route>
+            <Route path="/users" element={<Users/>}></Route>
             <Route path="/profile" element={<Profile/>}></Route>
             <Route path="/change_password" element={<ChangePassword/>}></Route>
         </Route>

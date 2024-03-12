@@ -1,8 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 function NavBar() {
     const [isToggled, setIsToggled] = useState(false)
+    const [user,setUser] = useState(null)
     const navigate = useNavigate();
+    const getUserInfo = async ()=>{
+        const userInfo = await localStorage.getItem("loggedInUser") && JSON.parse(localStorage.getItem("loggedInUser"))
+        setUser(userInfo)
+    }
+    useEffect(()=>{
+        getUserInfo();
+       
+    },[])
     const logout = async () => {
         setIsToggled(!isToggled)
         await localStorage.clear();
@@ -28,12 +37,15 @@ function NavBar() {
                         <li className="nav-item">
                             <Link to="/tasks" className="nav-link active" aria-current="page" >TaskList</Link>
                         </li>
-                        <li className="nav-item">
+                        {user?.role!="admin" && <li className="nav-item">
                             <Link to="/mytask" className="nav-link active" aria-current="page" >MyTask</Link>
-                        </li>
-                        <li className="nav-item">
+                        </li>}
+                        {user?.role==="admin" && <li className="nav-item">
                             <Link className="nav-link" to="/create-task">Create Task</Link>
-                        </li>
+                        </li>}
+                        {user?.role==="admin" && <li className="nav-item">
+                            <Link className="nav-link" to="/users">Users</Link>
+                        </li>}
 
                     </ul>
                     <ul className="navbar-nav" style={{marginLeft:'auto'}}>

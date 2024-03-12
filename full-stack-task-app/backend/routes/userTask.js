@@ -12,6 +12,16 @@ router.get("/myTask/:userId",async function(req,res){
     let myTasks = await userTask.find({userId:req.params.userId}).populate("taskId","taskName taskDesc").exec();
     res.send(myTasks)
 })
+router.get("/:userId/byStatus/:status",async function(req,res){
+    const {status} = req.params;
+    if(status==="All"){
+        let tasks = await UserTaskModel.find({userId:req.params.userId}).populate("taskId","taskName taskDesc").exec();
+       return res.send(tasks)
+    }else{
+        let tasks = await UserTaskModel.find({$and:[{userId:req.params.userId},{status:req.params.status}]}).populate("taskId","taskName taskDesc").exec();
+        return res.send(tasks)
+    }
+})
 router.post("/assignTask", async function(req,res){
     // here logic will come to assign task to particular user
     // get the userId taskId and then default sttaus to inprogress
@@ -28,7 +38,12 @@ router.post("/assignTask", async function(req,res){
     }else{
         res.send("user not exist")
     }
+})
 
+router.put("/completeTask", async function(req,res){
+    const {id,status} = req.body
+    const updatedTask = await UserTaskModel.updateOne({_id:new mongoose.Types.ObjectId(id)},{status:status})
+    res.send(updatedTask)
 })
 
 

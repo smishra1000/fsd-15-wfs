@@ -29,6 +29,14 @@ function MyTask() {
         getMyTasks();
     }, []);
 
+    const completeTask = (e,id)=>{
+        fetch("http://localhost:7000/user/task/completeTask", { method: "PUT", headers: { "Content-type": 'Application/Json' }, body: JSON.stringify({ id:id,status: "completed" }) }).then((res) => {
+            return res.json();
+        }).then((result) => {
+            getMyTasks();
+        })
+    }
+
     const searchTasks = (e) => {
         setSearchKey(e.target.value)
         if (e.target.value) {
@@ -42,8 +50,9 @@ function MyTask() {
     }
 
 
-    const getTasksByStatus = (status) => {
-        fetch("http://localhost:7000/task/byStatus/" + status).then((res) => {
+    const getTasksByStatus = async (status) => {
+        const user = await localStorage.getItem("loggedInUser") && JSON.parse(localStorage.getItem("loggedInUser"))
+        fetch(`http://localhost:7000/user/task/${user.userId}/byStatus/${status}`).then((res) => {
             return res.json();
         }).then((result) => {
             setTasks(result)
@@ -86,8 +95,8 @@ function MyTask() {
                     return (
                         <div className="col-md-3 mt-3">
                             <div className="card task-card" style={{ boxShadow: 'rgba(0, 0, 0, 0.12) 0px 4px 16px' }}>
-                                {/* {task.status === 'Inprogress' && <button style={{ position: 'absolute' }} className="btn btn-info btn-sm" onClick={(e) => startTask(e, task._id, task.status)}>{'Complete'}</button>}
-                                {task.status === 'not_started' && <button style={{ position: 'absolute' }} className="btn btn-info btn-sm" onClick={(e) => assignTask(e, task._id, task.status)}>{'Start'}</button>} */}
+                                {task.status === 'Inprogress' && <button style={{ position: 'absolute' }} className="btn btn-info btn-sm" onClick={(e) => completeTask(e, task._id)}>{'Complete'}</button>}
+                                {/* {task.status === 'not_started' && <button style={{ position: 'absolute' }} className="btn btn-info btn-sm" onClick={(e) => assignTask(e, task._id, task.status)}>{'Start'}</button>} */}
                                 <img className="card-img-top" src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Card image cap" />
                                 <div className="card-body">
                                     <h5 className="card-title">{task.taskId.taskName}</h5>
