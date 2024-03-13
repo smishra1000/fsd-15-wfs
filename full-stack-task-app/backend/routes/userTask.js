@@ -8,10 +8,17 @@ const userTask = require("../models/userTask");
 
 
 
+router.get("/summary/:userId", async function(req,res){
+    console.log(req.params.userId)
+    let InProgressCount = await UserTaskModel.find({$and:[{status: "Inprogress"},{userId:new mongoose.Types.ObjectId(req.params.userId)}]}).count();
+    let CompletedCount = await UserTaskModel.find({$and:[{userId:new mongoose.Types.ObjectId(req.params.userId)},{status:'completed'}]}).count();
+    res.send({ InProgressCount, CompletedCount});
+})
 router.get("/myTask/:userId",async function(req,res){
-    let myTasks = await userTask.find({userId:req.params.userId}).populate("taskId","taskName taskDesc").exec();
+    let myTasks = await UserTaskModel.find({userId:req.params.userId}).populate("taskId","taskName taskDesc").exec();
     res.send(myTasks)
 })
+
 router.get("/:userId/byStatus/:status",async function(req,res){
     const {status} = req.params;
     if(status==="All"){

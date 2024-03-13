@@ -34,11 +34,16 @@ function Login() {
         if(Object.keys(errors).length===0){
             fetch("http://localhost:7000/auth/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email,password})}).then((res)=>{
                 return res.json()
-            }).then((result)=>{
+            }).then(async (result)=>{
                 if(result.success){
-                    localStorage.setItem("loggedInUser",JSON.stringify({email:result.email,userId:result.userId,role:result.role}))
-                    localStorage.setItem("isLoggedIn",true)
-                    navigate("/")
+                    await localStorage.setItem("loggedInUser",JSON.stringify({email:result.email,userId:result.userId,role:result.role}))
+                    await localStorage.setItem("isLoggedIn",true)
+                    if(result.role==="admin"){
+                        navigate("/adminTasks")
+                    }else{
+                        navigate("/tasks")
+                    }
+                   
                     
                 }else{
                     setIsError(true)

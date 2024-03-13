@@ -43,7 +43,7 @@ function Users() {
                                     <td>{user.fullName}</td>
                                     <td>{user.email}</td>
                                     <td>{user.role ? user.role : "user"}</td>
-                                    <td>{(user.active === true) && <button className="btn btn-sm btn-success" onClick={(e) => accountActivateDeactiate(e, user._id, user.active)}>Deactivate</button>}
+                                    <td>{(user.active === true) && <button className="btn btn-sm btn-danger" onClick={(e) => accountActivateDeactiate(e, user._id, user.active)}>Deactivate</button>}
                                         {user.active === false && <button className="btn btn-sm btn-success" onClick={(e) => accountActivateDeactiate(e, user._id, user.active)}>Activate</button>}</td>
                                 </tr>
                             )

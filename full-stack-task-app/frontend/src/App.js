@@ -12,9 +12,12 @@ import Profile from './pages/Profile';
 import ChangePassword from './pages/ChangePassword';
 import MyTask from './pages/MyTask';
 import Users from './pages/Users';
+import AdminTaskList from './pages/admin/AdminTaskList';
+import { useEffect, useState } from 'react';
 
 
 function App() {
+  
   return (
     <div className="App">
       <BrowserRouter>
@@ -24,6 +27,7 @@ function App() {
         <Route element={<PrivateRoutes/>}>
             <Route path="/" element={<Dashboard/>}>
             <Route path="/tasks" element={<TaskList/>}></Route>
+            <Route path="/adminTasks" element={<AdminTaskList/>}></Route>
             <Route path="/mytask" element={<MyTask/>}></Route>
             <Route path="/create-task" element={<CreateTask/>}></Route>
             <Route path="/users" element={<Users/>}></Route>

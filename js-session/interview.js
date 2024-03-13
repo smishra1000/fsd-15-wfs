@@ -182,3 +182,27 @@ function getusers(){
 getusers();
 console.log("hii got users")
 
+
+
+// js--
+
+// hositing
+// scoping 
+// clousre
+// promise async await callback 
+// object 
+// this call apply bind 
+// map filter reduce foreach 
+// array methods 
+// objcet --create,assign keys,values,entries,
+// es6--class object inhertaince,
+// spread
+// rest 
+// let const var 
+// constructor function 
+// object creation in js 
+// localstorage,session storage
+// cookies
+// dom---manipulation 
+
+

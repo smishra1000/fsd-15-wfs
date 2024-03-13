@@ -5,7 +5,7 @@ function MyTask() {
     const [searchkey, setSearchKey] = useState("")
     const [filteredTasks, setFilteredTasks] = useState([])
     const [status, setStatus] = useState(["All", "Inprogress", "completed", "not_started"])
-    const [taskSummary, setTaskSummary] = useState({ TotalCount: 0, InProgressCount: 0, CompletedCount: 0, NotStartedCount: 0 })
+    const [taskSummary, setTaskSummary] = useState({ InProgressCount: 0, CompletedCount: 0})
 
     const getMyTasks = async () => {
         const user = await localStorage.getItem("loggedInUser") && JSON.parse(localStorage.getItem("loggedInUser"))
@@ -14,6 +14,15 @@ function MyTask() {
         }).then((result) => {
             setTasks(result)
             setFilteredTasks(result)
+        })
+    }
+
+    const getTaskSummaryByUser = async ()=>{
+        const user = await localStorage.getItem("loggedInUser") && JSON.parse(localStorage.getItem("loggedInUser"))
+        fetch("http://localhost:7000/user/task/summary/"+user.userId).then((res) => {
+            return res.json();
+        }).then((result) => {
+            setTaskSummary(result)
         })
     }
     useEffect(() => {
@@ -27,6 +36,7 @@ function MyTask() {
         // };
         // fetchData();
         getMyTasks();
+        getTaskSummaryByUser();
     }, []);
 
     const completeTask = (e,id)=>{
@@ -67,6 +77,24 @@ function MyTask() {
 
     return (
         <div className="container">
+         <div className="row mt-3">
+                <div className="col-md-3">
+                    <div className="card text-center mb-3 card-shadow" style={{ borderBottom: '5px solid orange' }}>
+                        <div className="card-body">
+                            <h5 className="card-title">In Progress Tasks</h5>
+                            <p className="card-text count-task">{taskSummary.InProgressCount}</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-md-3">
+                    <div className="card text-center mb-3 card-shadow" style={{ borderBottom: '5px solid green' }}>
+                        <div className="card-body">
+                            <h5 className="card-title">Completed Tasks</h5>
+                            <p className="card-text count-task">{taskSummary.CompletedCount}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className="row mt-3">
                 <div className="col-md-12">
                     <input type="text" className="search-bar" style={{ width: '100%' }} value={searchkey} placeholder="Search Tasks" onChange={(e) => searchTasks(e)} />

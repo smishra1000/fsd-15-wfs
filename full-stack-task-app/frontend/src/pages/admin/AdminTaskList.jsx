@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react"
-import "../App.css"
-function TaskList() {
+import "../../App.css"
+function AdminTaskList() {
     const [tasks, setTasks] = useState([])
     const [searchkey, setSearchKey] = useState("")
     const [filteredTasks, setFilteredTasks] = useState([])
     const [status, setStatus] = useState(["All", "Inprogress", "completed", "not_started"])
-    const [taskSummary, setTaskSummary] = useState({ TotalCount: 0, InProgressCount: 0, CompletedCount: 0, NotStartedCount: 0,AvailableTaskCount:0 })
+    const [taskSummary, setTaskSummary] = useState({ TotalCount: 0, InProgressCount: 0, CompletedCount: 0, NotStartedCount: 0,AvailableTaskCount:0,AssignedTaskCount:0 })
 
     const getAllTasks = () => {
         fetch("http://localhost:7000/task/all/").then((res) => {
@@ -114,19 +114,27 @@ function TaskList() {
     return (
         <div className="container">
             <div className="row mt-3">
-                <div className="col-md-3">
+            <div className="col-md-3">
                     <div className="card text-center mb-3 card-shadow" style={{ borderBottom: '5px solid blue' }}>
+                        <div className="card-body">
+                            <h5 className="card-title">Total Tasks</h5>
+                            <p className="card-text count-task">{taskSummary.TotalCount}</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-md-3">
+                    <div className="card text-center mb-3 card-shadow" style={{ borderBottom: '5px solid green' }}>
                         <div className="card-body">
                             <h5 className="card-title">Available Tasks</h5>
                             <p className="card-text count-task">{taskSummary.AvailableTaskCount}</p>
                         </div>
                     </div>
                 </div>
-                {/* <div className="col-md-3">
+                <div className="col-md-3">
                     <div className="card text-center mb-3 card-shadow" style={{ borderBottom: '5px solid red' }}>
                         <div className="card-body">
-                            <h5 className="card-title">Not Started Tasks</h5>
-                            <p className="card-text count-task">{taskSummary.NotStartedCount}</p>
+                            <h5 className="card-title">Assigned Task</h5>
+                            <p className="card-text count-task">{taskSummary.AssignedTaskCount}</p>
 
                         </div>
                     </div>
@@ -134,19 +142,21 @@ function TaskList() {
                 <div className="col-md-3">
                     <div className="card text-center mb-3 card-shadow" style={{ borderBottom: '5px solid orange' }}>
                         <div className="card-body">
-                            <h5 className="card-title">In Progress Tasks</h5>
+                            <h5 className="card-title">Inprogress Tasks</h5>
                             <p className="card-text count-task">{taskSummary.InProgressCount}</p>
+
                         </div>
                     </div>
                 </div>
                 <div className="col-md-3">
-                    <div className="card text-center mb-3 card-shadow" style={{ borderBottom: '5px solid green' }}>
+                    <div className="card text-center mb-3 card-shadow" style={{ borderBottom: '5px solid cyan' }}>
                         <div className="card-body">
-                            <h5 className="card-title">Completed Tasks</h5>
+                            <h5 className="card-title">Complted Tasks</h5>
                             <p className="card-text count-task">{taskSummary.CompletedCount}</p>
+
                         </div>
                     </div>
-                </div> */}
+                </div>
             </div>
             <div className="row mt-3">
                 <div className="col-md-12">
@@ -197,4 +207,4 @@ function TaskList() {
     )
 }
 
-export default TaskList
+export default AdminTaskList

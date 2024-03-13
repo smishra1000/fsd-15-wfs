@@ -34,9 +34,12 @@ function NavBar() {
                 <Link className="navbar-brand" to="/">TaskiFy</Link>
                 <div className="collapse navbar-collapse justify-content-start" id="navbarSupportedContent" style={{ justifyContent: 'space-around' }}>
                     <ul className="navbar-nav mr-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
+                    {user?.role!="admin" && <li className="nav-item">
                             <Link to="/tasks" className="nav-link active" aria-current="page" >TaskList</Link>
-                        </li>
+                        </li>}
+                        {user?.role==="admin" && <li className="nav-item">
+                            <Link to="/adminTasks" className="nav-link active" aria-current="page" >Task List</Link>
+                        </li>}
                         {user?.role!="admin" && <li className="nav-item">
                             <Link to="/mytask" className="nav-link active" aria-current="page" >MyTask</Link>
                         </li>}
