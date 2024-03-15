@@ -6,7 +6,8 @@ let authSchema = new mongoose.Schema({
     password:String,
     rePassword:String,
     role:String,
-    active:Boolean
+    active:Boolean,
+    profilepic:String,
 })
 
 module.exports = mongoose.model("auth",authSchema)

@@ -3,6 +3,8 @@ const jwt = require("jsonwebtoken")
 const AuthModel = require("../models/auth")
 const mongoose = require("mongoose")
 
+const path = require("path")
+
 const router = express.Router();
 
 router.post("/signup", async function (req, res) {
@@ -79,6 +81,20 @@ router.put("/activate_deactivate", async function (req, res) {
     const { id, active } = req.body
     const updatedUser = await AuthModel.updateOne({ _id: new mongoose.Types.ObjectId(id) }, { active: active })
     res.send(updatedUser)
+})
+
+router.post("/profileupload/:email", async function (req, res) {
+
+    const fileName = req.files.profile.name
+    const fileData = req.files.profile;
+    const uploadPath = path.join(__dirname, "../", "uploads")
+    fileData.mv(uploadPath + "/" + fileName, async function (err) {
+        if (err)
+            return res.send(err)
+        console.log(uploadPath + "/" + fileName)
+        const updatedUser = await AuthModel.updateOne({email:req.params.email},{profilepic:fileName})
+        res.send(updatedUser)
+    })
 })
 
 
