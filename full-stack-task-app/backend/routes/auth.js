@@ -2,10 +2,25 @@ const express = require("express");
 const jwt = require("jsonwebtoken")
 const AuthModel = require("../models/auth")
 const mongoose = require("mongoose")
-
+const multer = require('multer');
 const path = require("path")
 
 const router = express.Router();
+// Create a storage strategy for multer
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+    // Specify the upload directory
+    cb(null, './uploads/');
+    },
+    filename: function (req, file, cb) {
+        console.log(file.originalname)
+    // Define the file name format
+    const fileName = file.originalname.toLowerCase().split(' ').join('-');
+        cb(null, fileName)
+    }
+});
+// Create a multer instance with the storage strategy
+const upload = multer({ storage: storage });
 
 router.post("/signup", async function (req, res) {
     // first check is user present with given email 
@@ -83,18 +98,26 @@ router.put("/activate_deactivate", async function (req, res) {
     res.send(updatedUser)
 })
 
-router.post("/profileupload/:email", async function (req, res) {
+// file uplaod uisng express-fileupload
+// router.post("/profileupload/:email",async function (req, res) {
 
-    const fileName = req.files.profile.name
-    const fileData = req.files.profile;
-    const uploadPath = path.join(__dirname, "../", "uploads")
-    fileData.mv(uploadPath + "/" + fileName, async function (err) {
-        if (err)
-            return res.send(err)
-        console.log(uploadPath + "/" + fileName)
-        const updatedUser = await AuthModel.updateOne({email:req.params.email},{profilepic:fileName})
-        res.send(updatedUser)
-    })
+//     const fileName = req.files.profile.name
+//     const fileData = req.files.profile;
+//     const uploadPath = path.join(__dirname, "../", "uploads")
+//     fileData.mv(uploadPath + "/" + fileName, async function (err) {
+//         if (err)
+//             return res.send(err)
+//         console.log(uploadPath + "/" + fileName)
+//         const updatedUser = await AuthModel.updateOne({email:req.params.email},{profilepic:fileName})
+//         res.send(updatedUser)
+//     })
+// })
+
+// file upload uisng multer
+router.post("/profileupload/:email", upload.single('profile'), async function (req, res) {
+    // const url = req.protocol + '://' + req.get('host')
+    const updatedUser = await AuthModel.updateOne({email:req.params.email},{profilepic:req.file.filename})
+    res.send(updatedUser)
 })
 
 
