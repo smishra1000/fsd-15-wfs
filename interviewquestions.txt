@@ -1,0 +1,30 @@
+How scope works in js
+what is clourse with example
+what is hoisting
+how This works in js
+different ways to create object,object.crate and assign method
+What is event loop and explain how it works?
+What is the difference between Macro Queue and Micro Queue?
+What is hoisting? Difference between var, let and const
+What is throttling and deboucing?
+What are higher order function?
+Difference between async/await and promises?
+What is Document Object Model?
+What is the use of useReducer hook?
+How do achieve efficient state management in React?
+What is prop drilling? 
+Where to you use context API and Redux?
+Explain the complete Redux flow?
+Prototype and prototype inheritance
+How rendering work in the browser
+Currying with example
+How does CORS (Cross-Origin Resource Sharing) work?
+What is the purpose of the `this` keyword in JavaScript?
+Explain the differences between `==` and `===`.
+How does the event delegation pattern work?
+What is a closure, and how is it used?
+How can you optimize website performance?
+What is the difference between arrow functions and regular functions?
+Describe the principles of responsive design.
+Explain the concept of currying in JavaScript.
+Differentiate between call, apply, and bind methods.
