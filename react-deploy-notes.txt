@@ -1,0 +1,25 @@
+1>Full React app deployment 
+1> craete react app and build it using npm run build commnand
+1>open aws console --signup--login--
+2>go to s3 bucket service 
+3>create bucket---with name
+
+4> select bucket and upload files from build folder in s3 bucket 
+5>uncheck public access checkbox 
+6>write bucket policy 
+    {
+  "Version":"2012-10-17",
+  "Statement":[{
+    "Sid":"PublicReadGetObject",
+        "Effect":"Allow",
+      "Principal": "*",
+      "Action":["s3:GetObject"],
+      "Resource":["arn:aws:s3:::your_buket_name/*"
+      ]
+    }
+  ]
+}
+
+7>enable static website hosting
+8>add index.html in textbox
+9>clik ok clik on url generated  by static website hosting
