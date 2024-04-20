@@ -13,27 +13,28 @@ const NavBar = () => {
   };
   return (
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="#home">MyShop</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#link">Products</Nav.Link>
-        </Nav>
-        <Nav className="ml-auto"> {/* Added ml-auto class */}
-          <Nav.Link href="#logout">
-            <FaSignOutAlt /> Logout
-          </Nav.Link>
-          <Nav.Link onClick={handleCartClick}>
-            <FaShoppingCart /> Cart {cartCount}
-            {showCart && <Cart />}
-          </Nav.Link>
-          <Nav.Link href="#favorites">
-            <FaHeart /> Favorites
-          </Nav.Link>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
+    <Navbar.Brand href="#home">MyShop</Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="mr-auto">
+        <Nav.Link href="#home">Home</Nav.Link>
+        <Nav.Link href="#link">Products</Nav.Link>
+      </Nav>
+      <Nav className="ml-auto"> {/* Added ml-auto class */}
+        <Nav.Link href="#logout">
+          <FaSignOutAlt /> Logout
+        </Nav.Link>
+        <Nav.Link onClick={handleCartClick}>
+          <FaShoppingCart /> Cart {cartCount}
+          {showCart && <Cart />}
+        </Nav.Link>
+        <Nav.Link href="#favorites">
+          <FaHeart /> Favorites
+        </Nav.Link>
+      </Nav>
+    </Navbar.Collapse>
+  </Navbar>
+  
   );
 };
 

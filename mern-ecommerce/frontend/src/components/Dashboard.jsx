@@ -5,15 +5,15 @@ import NavBar from './Navbar';
 import Filters from './Filters';
 import { useCart } from '../context/CartContext';
 const data = [
-  { id: 1, name: 'Smartphone 1', category: 'Smartphone', price: 15000, imageUrl: 'https://via.placeholder.com/150' },
-  { id: 2, name: 'Smartphone 2', category: 'Smartphone', price: 20000, imageUrl: 'https://via.placeholder.com/150' },
-  { id: 3, name: 'Smartphone 3', category: 'Smartphone', price: 18000, imageUrl: 'https://via.placeholder.com/150' },
-  { id: 4, name: 'TV 1', category: 'TV', price: 25000, imageUrl: 'https://via.placeholder.com/150' },
-  { id: 5, name: 'TV 2', category: 'TV', price: 30000, imageUrl: 'https://via.placeholder.com/150' },
-  { id: 6, name: 'TV 3', category: 'TV', price: 28000, imageUrl: 'https://via.placeholder.com/150' },
-  { id: 7, name: 'Laptop 1', category: 'Laptop', price: 40000, imageUrl: 'https://via.placeholder.com/150' },
-  { id: 8, name: 'Laptop 2', category: 'Laptop', price: 45000, imageUrl: 'https://via.placeholder.com/150' },
-  { id: 9, name: 'Laptop 3', category: 'Laptop', price: 42000, imageUrl: 'https://via.placeholder.com/150' },
+  { id: 1, name: 'Smartphone 1', category: 'Smartphone', price: 15000, imageUrl: 'https://m.media-amazon.com/images/I/71657TiFeHL._AC_UY327_FMwebp_QL65_.jpg' },
+  { id: 2, name: 'Smartphone 2', category: 'Smartphone', price: 20000, imageUrl: 'https://m.media-amazon.com/images/I/71d1ytcCntL._AC_UY327_FMwebp_QL65_.jpg' },
+  { id: 3, name: 'Smartphone 3', category: 'Smartphone', price: 18000, imageUrl: 'https://m.media-amazon.com/images/I/71-ZHpmFzDL._AC_UY327_FMwebp_QL65_.jpg' },
+  { id: 4, name: 'TV 1', category: 'TV', price: 25000, imageUrl: 'https://m.media-amazon.com/images/I/71S8iUPW9bL._AC_UY327_FMwebp_QL65_.jpg' },
+  { id: 5, name: 'TV 2', category: 'TV', price: 30000, imageUrl: 'https://m.media-amazon.com/images/I/81s35LoX36L._AC_UY327_FMwebp_QL65_.jpg' },
+  { id: 6, name: 'TV 3', category: 'TV', price: 28000, imageUrl: 'https://m.media-amazon.com/images/I/8195aYGDl9L._AC_UY327_FMwebp_QL65_.jpg' },
+  { id: 7, name: 'Laptop 1', category: 'Laptop', price: 40000, imageUrl: 'https://m.media-amazon.com/images/I/71c0GSxtEEL._AC_UL480_FMwebp_QL65_.jpg' },
+  { id: 8, name: 'Laptop 2', category: 'Laptop', price: 45000, imageUrl: 'https://m.media-amazon.com/images/I/71-HvuUTvfL._AC_UL480_FMwebp_QL65_.jpg' },
+  { id: 9, name: 'Laptop 3', category: 'Laptop', price: 42000, imageUrl: 'https://m.media-amazon.com/images/I/61zAPJOwK8L._AC_UL480_FMwebp_QL65_.jpg' },
 ]
 const Dashboard = () => {
   // Dummy data for products
@@ -38,7 +38,7 @@ const Dashboard = () => {
 };
 
   return (
-    <div>
+    <>
       <NavBar />
       <Container fluid>
         <Row>
@@ -57,7 +57,7 @@ const Dashboard = () => {
           </Col>
         </Row>
       </Container>
-    </div>
+      </>
   );
 };
 const ProductCard = ({ product }) => {
