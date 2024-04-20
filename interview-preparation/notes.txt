@@ -1,0 +1,16 @@
+FSD Interview preparation
+
+1>HTML CSS 
+2>Complete JS advance topic-
+3>machine coding questions --js 
+4>web fundamentals-localstorage,browser,http,url,performance,security 
+5>React js 
+6>Nodejs, express,jwt,authentication,authrization
+7>Complete full stack 
+
+
+Plan of action----
+Day 1- HTML css interview questions 
+Day 2. JS -
+Day 3-react,hooks context designe pattern
+day 4-nodejs express,
