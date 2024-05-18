@@ -4,6 +4,7 @@ const AuthModel = require("../models/auth")
 const mongoose = require("mongoose")
 const multer = require('multer');
 const path = require("path")
+const  authController= require("../controllers/auth")
 
 const router = express.Router();
 // Create a storage strategy for multer
@@ -37,37 +38,21 @@ router.post("/signup", async function (req, res) {
     res.send({ message: "User Signup successfully", success: true })
 })
 
-router.post("/login", async function (req, res) {
-    // first check user exist or not
-    // if user present with given email
-    // check entred password is equal to stored password 
-    //otherwise send error message that password is wrong
-    // if user is not present then send error user not exist  
-    const { fullName, email, password, rePassword } = req.body
-    let isUserExist = await AuthModel.findOne({ email: email })
-    if (isUserExist) {
-        if (password === isUserExist.password) {
-            // token generation line and pass to client
-            if (isUserExist.active === false) {
-                return res.send({ message: "Your account has been Deactivated", success: false })
-            } else {
-                let token = jwt.sign({ email: isUserExist.email, _id: isUserExist._id }, "testkey")
-                return res.send({ message: "User Logged in Successfully", success: true, token: token, email: isUserExist.email, userId: isUserExist._id, role: isUserExist.role })
-            }
+router.post("/login",authController.login)
 
-        } else {
-            return res.send({ message: "Invalid credentials", success: false })
-        }
 
-    } else {
-        return res.send({ message: "User Not Exist", success: false })
+function checkForToken(req,res,next){
+    console.log(req.headers)
+    if(req.headers['authorization']){
+        next()
+    }else{
+        return res.send("you dont have access for routes")
     }
-})
+}
 
-router.get("/profile/:email", async function (req, res) {
+router.get("/profile/:email", checkForToken,async function (req, res) {
     let user = await AuthModel.findOne({ email: req.params.email })
     res.send(user)
-
 })
 
 router.get("/users", async function (req, res) {

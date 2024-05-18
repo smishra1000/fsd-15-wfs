@@ -23,3 +23,15 @@
 7>enable static website hosting
 8>add index.html in textbox
 9>clik ok clik on url generated  by static website hosting
+
+
+
+
+
+
+
+
+https://medium.com/@vmaineng/how-to-deploy-mern-full-stack-to-render-f7ab380660b6
+You
+6:21 PM
+https://dev.to/bcncodeschool/deployment-of-mern-full-stack-app-with-rendercom-1jk9

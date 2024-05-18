@@ -27,6 +27,16 @@ app.use("/uploads",express.static('uploads'))
 
 app.use("/task",taskRoutes);
 app.use("/auth",authRoutes);
+
+
+
+app.use(function(req, res, next) {
+    if (!req.headers.authorization) {
+      return res.status(403).json({ error: 'No credentials sent!' });
+    }
+    next();
+});
+  
 app.use("/user/task",userTaskRoutes)
 
 

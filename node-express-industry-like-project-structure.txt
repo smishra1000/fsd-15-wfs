@@ -1,0 +1,207 @@
+my-app/
+├── config/
+│   ├── config.js
+│   ├── database.js
+│   └── jwtConfig.js
+├── controllers/
+│   ├── userController.js
+│   └── authController.js
+├── middlewares/
+│   ├── authMiddleware.js
+│   ├── errorMiddleware.js
+├── models/
+│   └── user.js
+├── routes/
+│   ├── userRoutes.js
+│   └── authRoutes.js
+├── services/
+│   └── authService.js
+├── utils/
+│   ├── logger.js
+│   ├── helpers.js
+├── tests/
+│   ├── user.test.js
+│   └── auth.test.js
+├── .env
+├── .gitignore
+├── app.js
+├── package.json
+├── package-lock.json
+└── README.md
+
+config/jwtConfig.js
+
+module.exports.jwtConfig = {
+  secret: process.env.JWT_SECRET || 'your_jwt_secret',
+  expiresIn: '1h', // Token validity duration
+};
+
+
+models/user.js 
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+
+const userSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+}, { timestamps: true });
+
+userSchema.pre('save', async function(next) {
+  if (!this.isModified('password')) return next();
+  this.password = await bcrypt.hash(this.password, 10);
+  next();
+});
+
+userSchema.methods.comparePassword = function(password) {
+  return bcrypt.compare(password, this.password);
+};
+
+module.exports = mongoose.model('User', userSchema);
+
+Auth Controller
+controllers/authController.js
+
+const User = require('../models/user');
+const jwt = require('jsonwebtoken');
+const { jwtConfig } = require('../config/jwtConfig');
+
+exports.signup = async (req, res, next) => {
+  try {
+    const { name, email, password } = req.body;
+    const user = new User({ name, email, password });
+    await user.save();
+    res.status(201).json({ message: 'User created successfully' });
+  } catch (error) {
+    next(error);
+  }
+};
+
+exports.login = async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
+    if (!user || !(await user.comparePassword(password))) {
+      return res.status(401).json({ message: 'Invalid email or password' });
+    }
+    const token = jwt.sign({ userId: user._id }, jwtConfig.secret, { expiresIn: jwtConfig.expiresIn });
+    res.json({ token });
+  } catch (error) {
+    next(error);
+  }
+};
+
+
+User Controller
+controllers/userController.js
+
+const User = require('../models/user');
+
+exports.getUserDetails = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.user.userId).select('-password');
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.json(user);
+  } catch (error) {
+    next(error);
+  }
+};
+
+
+Authentication Middleware
+middlewares/authMiddleware.js
+
+const jwt = require('jsonwebtoken');
+const { jwtConfig } = require('../config/jwtConfig');
+
+module.exports = (req, res, next) => {
+  const token = req.header('Authorization')?.split(' ')[1];
+  if (!token) {
+    return res.status(401).json({ message: 'Access denied. No token provided.' });
+  }
+
+  try {
+    const decoded = jwt.verify(token, jwtConfig.secret);
+    req.user = decoded;
+    next();
+  } catch (error) {
+    res.status(400).json({ message: 'Invalid token' });
+  }
+};
+
+
+Error Handling Middleware
+middlewares/errorMiddleware.js
+module.exports = (err, req, res, next) => {
+    console.error(err);
+    res.status(500).json({ message: 'Internal Server Error' });
+  };
+
+  
+  Routes
+routes/authRoutes.js
+
+const express = require('express');
+const { signup, login } = require('../controllers/authController');
+const router = express.Router();
+
+router.post('/signup', signup);
+router.post('/login', login);
+
+module.exports = router;
+
+routes/userRoutes.js
+const express = require('express');
+const { getUserDetails } = require('../controllers/userController');
+const authMiddleware = require('../middlewares/authMiddleware');
+const router = express.Router();
+
+router.get('/me', authMiddleware, getUserDetails);
+
+module.exports = router;
+
+Updated app.js
+const express = require('express');
+const mongoose = require('mongoose');
+const { config } = require('./config/config');
+const authRoutes = require('./routes/authRoutes');
+const userRoutes = require('./routes/userRoutes');
+const errorMiddleware = require('./middlewares/errorMiddleware');
+
+const app = express();
+
+// Middleware
+app.use(express.json());
+
+// Routes
+app.use('/auth', authRoutes);
+app.use('/users', userRoutes);
+
+// Error handling middleware
+app.use(errorMiddleware);
+
+mongoose.connect(config.databaseUrl, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Database connected'))
+  .catch(err => console.error('Database connection error:', err));
+
+const PORT = config.port || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
+Environment Variables
+.env
+PORT=3000
+DATABASE_URL=mongodb://localhost:27017/myapp
+JWT_SECRET=your_jwt_secret
+
+
+Explanation
+User Model: Includes password hashing.
+Auth Controller: Manages signup and login logic.
+User Controller: Fetches user details.
+Auth Middleware: Protects routes using JWT.
+Error Middleware: Centralized error handling.
+Routes: Separate routes for authentication and user endpoints.

@@ -2,7 +2,7 @@ const API_URL="http://localhost:7000";
 export const apiService = {
     getUserProfile:async function(email){
     const API_ENDPOINT=API_URL+"/auth/profile/"+email;
-       let res =  await fetch(API_ENDPOINT)
+       let res =  await fetch(API_ENDPOINT,{headers:{'Authorization':'123'}})
        let data = await res.json()
        return data;
     },
