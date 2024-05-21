@@ -1,0 +1,21 @@
+math-module/
+├── src/
+│   └── math.js
+├── spec/
+│   └── math.spec.js
+├── node_modules/
+├── package.json
+└── karma.conf.js
+
+mkdir math-module
+cd math-module
+npm init -y
+
+npm install --save-dev jasmine karma karma-jasmine karma-chrome-launcher karma-cli webpack karma-webpack
+
+npx karma init
+
+5. Running the Tests
+Run the tests using Karma with the following command:
+
+npx karma start

@@ -1,0 +1,69 @@
+Unit testing is a type of software testing that focuses on individual 
+units or components of a software system. The purpose of unit testing is 
+to validate that each unit of the software works as intended and meets the requirements
+
+To isolate a section of code.
+To verify the correctness of the code.
+To test every function and procedure.
+To fix bugs early in the development cycle and to save costs.
+To help the developers understand the code base and enable them to make changes quickly.
+To help with code reuse.
+
+1. JEST – Works with Projects Using Babel, TypeScript, Node.js, React, Angular 
+and Vue.js JEST is an open-source JavaScript testing framework created
+ and maintained by developers at Facebook 
+
+AVA – Test Runner for Node.js with a Concise API
+AVA is a light-weight framework that takes full advantage of JavaScript’s 
+asynchronous nature. It runs tests faster and performs them concurrently and
+ asynchronously. AVA is majorly implemented to run tests on Node.js-based codes. 
+
+ 3. Mocha – A Feature-rich JavaScript Test Framework Running on Node.js and 
+ in the Browser
+Mocha supports both front-end and back-end testing of JavaScript codes on 
+the browser or Chrome engine
+
+4. Karma – Karma is a Test Runner for JavaScript that Runs on Node.js
+
+5. Puppeteer – A Node.js Library Maintained by Chrome’s Development Team from
+ Google
+Puppeteer is a test execution framework, developed by one of Google’s teams. 
+It offers a high-level API to control headless Chrome for Node.js apps. 
+
+6. Jasmine – An Open-source Testing Framework for JavaScript
+Jasmine is a behavior-driven development framework for testing JavaScript code
+
+
+
+What are Jasmine and Karma?
+Jasmine is a JavaScript behavior-driven testing framework that helps you write
+ test cases in a human-readable way. Simply put, Jasmine allows us to write code
+  (test case) that tests our functional code to achieve a specific requirement.
+
+Karma is a test runner that executes the test we write with Jasmine. It also 
+provides features like live reloading of test cases, code coverage reporting
+
+How to write a unit test with Jasmine?
+To write a unit test, we need to create a spec.ts file or test case file. 
+Generally, Angular generates a test case file on its own and provides a basic
+ skeleton of the test case. It will follow the below-mentioned structure to 
+ write test cases.
+
+ describe(): It is used to group related test cases. It accepts two arguments:
+  a string that describes the group of specs(test cases), and a function that 
+  contains the specs(test cases) or nested describe statements. 
+  It is known as a test group or test suite.
+
+It(): It is used to define a single test spec. It also takes two arguments: 
+a test spec description and a function that contains the expectation or 
+assertions for the spec.
+
+
+Expect(): It is used to create an expectation or assertion in a test spec.
+ It takes a single argument, which is the value that you want to test, 
+ and then a matcher function that tests the value against the expected value.
+
+ beforeEach(): Called before each test specification
+beforeAll(): Called once before all the specification
+afterEach(): Called after each test specification
+afterAll(): Called once after all the specifications.
